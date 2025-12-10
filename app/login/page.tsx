@@ -1,4 +1,4 @@
-"use client";
+Ôªø"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -20,11 +20,11 @@ export default function LoginPage() {
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"}/token/`,
+        `${process.env.NEXT_PUBLIC_API_URL || "http://loca≈Çlhost:8000/api"}/token/`,
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "applica≈Çtion/json",
           },
           body: JSON.stringify({ email, password }),
         }
@@ -32,7 +32,7 @@ export default function LoginPage() {
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
-        setError(errorData.detail || "Nieprawid≥owy email lub has≥o");
+        setError(errorData.detail || "Nieprawid≈Çowy email lub has≈Ço");
         setLoading(false);
         return;
       }
@@ -44,29 +44,29 @@ export default function LoginPage() {
       localStorage.setItem("refresh", data.refresh);
       localStorage.setItem("userEmail", email);
 
-      // Wyúlij custom event øeby Header siÍ zaktualizowa≥
+      // Wy≈õlij custom event ≈ºeby Header siƒô zaktualizowa≈Ç
       window.dispatchEvent(new Event('auth-change'));
 
       router.push("/");
     } catch (err) {
       console.error("Login error:", err);
-      setError("Wystπpi≥ b≥πd po≥πczenia z serwerem");
+      setError("WystƒÖpi≈Ç b≈ÇƒÖd po≈ÇƒÖczenia z serwerem");
       setLoading(false);
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-md p-8">
           <nav className="mb-6">
-            <Link href="/" className="text-[#8CA9FF] hover:text-[#AAC4F5] transition-colors text-sm">
-              ã PowrÛt do strony g≥Ûwnej
+            <Link href="/" className="text-[#8ca9FF] hover:text-[#AAC4F5] transition-colors text-sm">
+              ‚Üê Powr√≥ƒá do strony g≈Ç√≥wnej
             </Link>
           </nav>
 
-          <h1 className="text-3xl font-bold mb-2 text-gray-800">Logowanie ??</h1>
-          <p className="text-gray-600 mb-6">Zaloguj siÍ do swojego konta</p>
+          <h1 className="text-3xl font-bold mb-2 text-gray-800">Logowanie</h1>
+          <p className="text-gray-600 mb-6">Zaloguj siƒô do swojego konta</p>
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
@@ -76,7 +76,7 @@ export default function LoginPage() {
               <input
                 type="email"
                 placeholder="twoj@email.com"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent text-gray-900"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8ca≈Ç9FF] focus:border-transparent text-gray-900"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -86,16 +86,16 @@ export default function LoginPage() {
             <div>
               <div className="flex justify-between items-center mb-2">
                 <label className="block text-sm font-medium text-gray-700">
-                  Has≥o
+                  Has≈Ço
                 </label>
-                <Link href="/forgot-password" className="text-xs text-[#8CA9FF] hover:text-[#AAC4F5] font-medium">
-                  Zapomnia≥eú has≥a?
+                <Link href="/forgot-password" className="text-xs text-[#8ca9FF] hover:text-[#AAC4F5] font-medium">
+                  Zapomnia≈Çe≈õ has≈Ça?
                 </Link>
               </div>
               <input
                 type="password"
-                placeholder="ïïïïïïïï"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent text-gray-900"
+                placeholder="********"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent text-gray-900"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -114,15 +114,15 @@ export default function LoginPage() {
               className={`w-full font-semibold py-3 px-6 rounded-full text-white transition-all duration-200 shadow-md ${
                 loading
                   ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#8CA9FF] hover:bg-[#AAC4F5] hover:scale-105'
+                  : 'bg-[#8ca9FF] hover:bg-[#AAC4F5] hover:scale-105'
               }`}
             >
-              {loading ? 'Logowanie...' : 'Zaloguj siÍ'}
+              {loading ? 'Logowanie...' : 'Zaloguj siƒô'}
             </button>
           </form>
 
           <div className="mt-6 text-center text-sm text-gray-600">
-            <p>Nie masz konta? <Link href="/register" className="text-[#8CA9FF] hover:text-[#AAC4F5] font-semibold">Zarejestruj siÍ</Link></p>
+            <p>Nie masz konta? <Link href="/register" className="text-[#8ca9FF] hover:text-[#AAC4F5] font-semibold">Zarejestruj siƒô</Link></p>
           </div>
         </div>
       </div>

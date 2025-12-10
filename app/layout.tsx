@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+ï»¿import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ksiêgarnia Online",
-  description: "Najlepsza ksiêgarnia online z ksi¹¿kami i e-bookami",
+  title: "Ksiï¿½garnia Online",
+  description: "Najlepsza ksiï¿½garnia online z ksiï¿½ï¿½kami i e-bookami",
 };
 
 export default function RootLayout({

@@ -1,4 +1,4 @@
-"use client";
+Ôªø"use client";
 
 import { useState, use } from "react";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,7 @@ export default function ResetPasswordPage({
   const [loading, setLoading] = useState(false);
   // Validate token immediately
   const tokenValid = !!(resolvedParams.token && resolvedParams.uid);
-  const [error, setError] = useState(tokenValid ? "" : "Nieprawid≥owy lub brakujπcy token resetowania has≥a");
+  const [error, setError] = useState(tokenValid ? "" : "Nieprawid≈Çowy lub brakujƒÖcy token resetowania has≈Ça");
   const validatingToken = false;
 
   async function handleSubmit(e: React.FormEvent) {
@@ -28,12 +28,12 @@ export default function ResetPasswordPage({
 
     // Validation
     if (password.length < 8) {
-      setError("Has≥o musi mieÊ co najmniej 8 znakÛw");
+      setError("has≈Ço musi mieƒá co najmniej 8 znak√≥w");
       return;
     }
 
     if (password !== confirmPassword) {
-      setError("Has≥a nie sπ identyczne");
+      setError("has≈Ça nie sƒÖ identyczne");
       return;
     }
 
@@ -41,7 +41,7 @@ export default function ResetPasswordPage({
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"}/password-reset-confirm/`,
+        `${process.env.NEXT_PUBLIC_API_URL || "http://loca≈Çlhost:8000/api"}/password-reset-confirm/`,
         {
           method: "POST",
           headers: {
@@ -61,7 +61,7 @@ export default function ResetPasswordPage({
           errorData.detail || 
           errorData.new_password?.[0] || 
           errorData.token?.[0] ||
-          "Wystπpi≥ b≥πd podczas resetowania has≥a. Link mÛg≥ wygasnπÊ."
+          "WystƒÖpi≈Ç b≈ÇƒÖd podczas resetowania has≈Ça. Link m√≥g≈Ç wygasnƒÖƒá."
         );
         setLoading(false);
         return;
@@ -76,16 +76,16 @@ export default function ResetPasswordPage({
       }, 3000);
     } catch (err) {
       console.error("Password reset confirm error:", err);
-      setError("Wystπpi≥ b≥πd po≥πczenia z serwerem");
+      setError("WystƒÖpi≈Ç b≈ÇƒÖd po≈ÇƒÖczenia z serwerem");
       setLoading(false);
     }
   }
 
   if (validatingToken) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#8CA9FF] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#8ca9FF] mx-auto mb-4"></div>
           <p className="text-gray-600">Sprawdzanie linku resetowania...</p>
         </div>
       </div>
@@ -94,7 +94,7 @@ export default function ResetPasswordPage({
 
   if (!tokenValid) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-2xl shadow-md p-8">
             <div className="text-center">
@@ -116,16 +116,16 @@ export default function ResetPasswordPage({
                 </div>
               </div>
 
-              <h1 className="text-3xl font-bold mb-3 text-gray-800">Nieprawid≥owy link ?</h1>
+              <h1 className="text-3xl font-bold mb-3 text-gray-800">Nieprawid≈Çowy link ?</h1>
               <p className="text-gray-600 mb-6">
-                Link do resetowania has≥a jest nieprawid≥owy lub wygas≥. SprÛbuj ponownie zresetowaÊ has≥o.
+                Link do resetowania has≈Ça jest nieprawid≈Çowy lub wygas≈Ç. Spr√≥buj ponownie zresetowaƒá has≈Ço.
               </p>
 
               <Link
                 href="/forgot-password"
-                className="inline-block bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105 shadow-md"
+                className="inline-block bg-[#8ca9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105 shadow-md"
               >
-                Wyúlij nowy link
+                Wy≈õlij nowy link
               </Link>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function ResetPasswordPage({
 
   if (success) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-2xl shadow-md p-8">
             <div className="text-center">
@@ -158,16 +158,16 @@ export default function ResetPasswordPage({
                 </div>
               </div>
 
-              <h1 className="text-3xl font-bold mb-3 text-gray-800">Has≥o zmienione! ?</h1>
+              <h1 className="text-3xl font-bold mb-3 text-gray-800">has≈Ço Zmienione! ?</h1>
               <p className="text-gray-600 mb-6">
-                Twoje has≥o zosta≥o pomyúlnie zmienione. Za chwilÍ zostaniesz przekierowany do strony logowania.
+                Twoje has≈Ço zosta≈Ço pomy≈õlnie Zmienione. Za chwilƒô zostaniesz przekierowany do strony logowania.
               </p>
 
               <Link
                 href="/login"
-                className="inline-block bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105 shadow-md"
+                className="inline-block bg-[#8ca9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105 shadow-md"
               >
-                Przejdü do logowania
+                Przejd≈∫ do logowania
               </Link>
             </div>
           </div>
@@ -177,47 +177,47 @@ export default function ResetPasswordPage({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-md p-8">
           <nav className="mb-6">
-            <Link href="/login" className="text-[#8CA9FF] hover:text-[#AAC4F5] transition-colors text-sm">
-              ã PowrÛt do logowania
+            <Link href="/login" className="text-[#8ca9FF] hover:text-[#AAC4F5] transition-colors text-sm">
+              ‚Üê Powr√≥ƒá do logowania
             </Link>
           </nav>
 
-          <h1 className="text-3xl font-bold mb-2 text-gray-800">Ustaw nowe has≥o ??</h1>
+          <h1 className="text-3xl font-bold mb-2 text-gray-800">Ustaw nowe has≈Ço </h1>
           <p className="text-gray-600 mb-6">
-            Wprowadü nowe has≥o dla swojego konta.
+            Wprowad≈∫ nowe has≈Ço dla swojego konta.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Nowe has≥o
+                Nowe has≈Ço
               </label>
               <input
                 type="password"
-                placeholder="ïïïïïïïï"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent text-gray-900"
+                placeholder="********"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent text-gray-900"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={8}
               />
               <p className="mt-2 text-xs text-gray-500">
-                Has≥o musi mieÊ co najmniej 8 znakÛw
+                has≈Ço musi mieƒá co najmniej 8 znak√≥w
               </p>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Potwierdü nowe has≥o
+                Potwierd≈∫ nowe has≈Ço
               </label>
               <input
                 type="password"
-                placeholder="ïïïïïïïï"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent text-gray-900"
+                placeholder="********"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent text-gray-900"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
@@ -237,10 +237,10 @@ export default function ResetPasswordPage({
               className={`w-full font-semibold py-3 px-6 rounded-full text-white transition-all duration-200 shadow-md ${
                 loading
                   ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#8CA9FF] hover:bg-[#AAC4F5] hover:scale-105'
+                  : 'bg-[#8ca9FF] hover:bg-[#AAC4F5] hover:scale-105'
               }`}
             >
-              {loading ? 'Resetowanie...' : 'Zresetuj has≥o'}
+              {loading ? 'Resetowanie...' : 'Zresetuj has≈Ço'}
             </button>
           </form>
         </div>

@@ -1,4 +1,4 @@
-'use client';
+Ôªø'use client';
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -29,7 +29,7 @@ export default function Home() {
   const [wishlistIds, setWishlistIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    // Za≥aduj listÍ øyczeÒ z localStorage
+    // Za≈Çaduj listƒô ≈ºycze≈Ñ z localStorage
     const savedWishlist = localStorage.getItem("wishlist");
     if (savedWishlist) {
       const wishlist = JSON.parse(savedWishlist);
@@ -42,18 +42,18 @@ export default function Home() {
       try {
         const allProducts = await getProducts();
         
-        // Mapowanie angielskich nazw gatunkÛw na polskie
+        // Mapowanie angielskich nazw gatunk√≥w na polskie
         const genreMapping: { [key: string]: string } = {
           'romance': 'Romans',
-          'mystery': 'Krymina≥',
+          'mystery': 'Krymina≈Ç',
           'fantasy': 'Fantasy',
-          'young-adult': 'Literatura m≥odzieøowa',
+          'young-adult': 'Literatura m≈Çodzie≈ºowa',
           'science-fiction': 'Science Fiction',
           'thriller': 'Thriller',
           'horror': 'Horror'
         };
         
-        // Grupuj produkty wed≥ug gatunku z polskimi nazwami
+        // Grupuj produkty wed≈Çug gatunku z polskimi nazwami
         const grouped: { [key: string]: Product[] } = {};
         
         allProducts.forEach((product: Product) => {
@@ -65,14 +65,14 @@ export default function Home() {
           grouped[genrePl].push(product);
         });
         
-        // Ogranicz kaødy gatunek do 20 produktÛw
+        // Ogranicz ka≈ºdy gatunek do 20 produkt√≥w
         Object.keys(grouped).forEach(genre => {
           grouped[genre] = grouped[genre].slice(0, 20);
         });
         
         setProductsByGenre(grouped);
         
-        // Inicjalizuj slajdy dla kaødego gatunku
+        // Inicjalizuj slajdy dla ka≈ºdego gatunku
         const initialSlides: { [key: string]: number } = {};
         Object.keys(grouped).forEach(genre => {
           initialSlides[genre] = 0;
@@ -126,7 +126,7 @@ export default function Home() {
     let wishlist = savedWishlist ? JSON.parse(savedWishlist) : [];
 
     if (wishlistIds.has(productId)) {
-      // UsuÒ z listy øyczeÒ
+      // Usu≈Ñ z listy ≈ºycze≈Ñ
       wishlist = wishlist.filter((item: Product) => item.id.toString() !== productId);
       setWishlistIds(prev => {
         const newSet = new Set(prev);
@@ -134,7 +134,7 @@ export default function Home() {
         return newSet;
       });
     } else {
-      // Dodaj do listy øyczeÒ
+      // Dodaj do listy ≈ºycze≈Ñ
       wishlist.push({
         id: product.id,
         title: product.title || product.name,
@@ -151,23 +151,23 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
       <Header />
 
       {/* Promotional Banner */}
       <section className="relative h-[400px] md:h-[500px] overflow-hidden group cursor-pointer">
         <Link href="/products" className="block w-full h-full">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#AAC4F5] to-[#8CA9FF] transition-transform duration-700 group-hover:scale-105">
+          <div className="absolute inset-0 bg-linear-to-r from-[#AAC4F5] to-[#8ca≈Ç9FF] transition-transform duration-700 group-hover:scale-105">
             <div className="container mx-auto px-4 h-full flex items-center justify-center text-center">
               <div className="animate-fadeIn">
                 <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-                  Letnia Wyprzedaø ??
+                  Letnia Wyprzeda≈º üåû
                 </h2>
                 <p className="text-xl md:text-2xl text-white/90 mb-6">
-                  Do -50% na wybrane tytu≥y
+                  Do -50% na wybrane tytu≈Çy
                 </p>
-                <span className="inline-block bg-white text-[#8CA9FF] px-8 py-3 rounded-full font-semibold hover:bg-[#FFF2C6] transition-all duration-200 hover:scale-105 shadow-lg">
-                  Zobacz promocjÍ
+                <span className="inline-block bg-white text-[#8ca49FFF] px-8 py-3 rounded-full font-semibold hover:bg-[#FFF2C6] transition-all duration-200 hover:scale-105 shadow-lg">
+                  Zobacz promocjƒô
                 </span>
               </div>
             </div>
@@ -180,13 +180,13 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center py-12">
-              <p className="text-gray-500">£adowanie ksiπøek...</p>
+              <p className="text-gray-500">≈Åadowanie ksiƒÖ≈ºek...</p>
             </div>
           </div>
         </section>
       ) : (
-        // Okreúlona kolejnoúÊ gatunkÛw
-        ['Romans', 'Krymina≥', 'Fantasy', 'Literatura m≥odzieøowa', 'Science Fiction', 'Thriller', 'Horror']
+        // Okre≈õlona kolejno≈õƒá gatunk√≥w
+        ['Romans', 'Krymina≈Ç', 'Fantasy', 'Literatura m≈Çodzie≈ºowa', 'Science Fiction', 'Thriller', 'Horror']
           .filter(genre => productsByGenre[genre] && productsByGenre[genre].length > 0)
           .map((genre, index) => (
           <section 
@@ -195,7 +195,7 @@ export default function Home() {
           >
             <div className="container mx-auto px-4">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 hover:text-[#8CA9FF] transition-colors duration-200">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 hover:text-[#8ca≈Ç9FF] transition-colors duration-200">
                   {genre}
                 </h2>
               </div>
@@ -213,10 +213,10 @@ export default function Home() {
                         <button
                           onClick={(e) => toggleWishlist(e, product)}
                           className="absolute top-2 right-2 z-10 bg-white rounded-full p-2 shadow-md hover:scale-110 transition-all duration-200"
-                          title={wishlistIds.has(product.id.toString()) ? "UsuÒ z listy øyczeÒ" : "Dodaj do listy øyczeÒ"}
+                          title={wishlistIds.has(product.id.toString()) ? "Usu≈Ñ z listy ≈ºycze≈Ñ" : "Dodaj do listy ≈ºycze≈Ñ"}
                         >
                           <span className="text-xl">
-                            {wishlistIds.has(product.id.toString()) ? '??' : '??'}
+                            {wishlistIds.has(product.id.toString()) ? '‚ù§Ô∏è' : 'ü§ç'}
                           </span>
                         </button>
                         
@@ -233,14 +233,14 @@ export default function Home() {
                             )}
                           </div>
                           <div className="flex flex-col grow">
-                            <h3 className="text-base font-semibold text-gray-800 mb-1 line-clamp-2 group-hover:text-[#8CA9FF] transition-colors min-h-10">
+                            <h3 className="text-base font-semibold text-gray-800 mb-1 line-clamp-2 group-hover:text-[#8ca9FF] transition-colors min-h-10">
                               {product.title || product.name}
                             </h3>
                             <p className="text-sm text-gray-600 mb-2 min-h-5">
                               {product.author || '\u00A0'}
                             </p>
-                            <p className="text-sm font-bold text-[#8CA9FF] mt-auto">
-                              {typeof product.price === 'number' ? `${product.price.toFixed(2)} z≥` : `${product.price} z≥`}
+                            <p className="text-sm font-bold text-[#8ca49FFF] mt-auto">
+                              {typeof product.price === 'number' ? `${product.price.toFixed(2)} z≈Ç` : `${product.price} z≈Ç`}
                             </p>
                           </div>
                         </div>
@@ -252,23 +252,23 @@ export default function Home() {
                     <button
                       onClick={() => updateSlide(genre, 'prev')}
                       disabled={(genreSlides[genre] || 0) === 0}
-                      className="px-6 py-2 bg-[#AAC4F5] text-white rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#8CA9FF] transition-all duration-200 hover:scale-105 shadow-md"
+                      className="px-6 py-2 bg-[#AAC4F5] text-white rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#8ca9FF] transition-all duration-200 hover:scale-105 shadow-md"
                     >
-                      ã Poprzednie
+                      ÔøΩ Poprzednie
                     </button>
                     <button
                       onClick={() => updateSlide(genre, 'next')}
                       disabled={(genreSlides[genre] || 0) >= Math.ceil(productsByGenre[genre].length / itemsPerPage) - 1}
-                      className="px-6 py-2 bg-[#AAC4F5] text-white rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#8CA9FF] transition-all duration-200 hover:scale-105 shadow-md"
+                      className="px-6 py-2 bg-[#AAC4F5] text-white rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#8ca9FF] transition-all duration-200 hover:scale-105 shadow-md"
                     >
-                      NastÍpne õ
+                      Nastƒôpne ‚Üí
                     </button>
                   </div>
                 )}
                 
                 {productsByGenre[genre].length === 0 && (
                   <div className="text-center py-8">
-                    <p className="text-gray-500">Brak dostÍpnych produktÛw w tej kategorii</p>
+                    <p className="text-gray-500">Brak dostƒôpnych produkt√≥w w tej kategorii</p>
                   </div>
                 )}
               </div>
@@ -282,15 +282,15 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <Link href="/ebooks" className="group">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 group-hover:text-[#8CA9FF] transition-colors duration-200">
-                TOP 100 E-bookÛw ??
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 group-hover:text-[#8ca9FF] transition-colors duration-200">
+                TOP 100 E-book√≥w 
               </h2>
             </Link>
             <Link 
               href="/ebooks" 
-              className="text-[#8CA9FF] hover:text-[#AAC4F5] font-medium transition-colors duration-200"
+              className="text-[#8ca9FF] hover:text-[#AAC4F5] font-medium transition-colors duration-200"
             >
-              Zobacz wszystkie õ
+              Zobacz wszystkie ‚Üí
             </Link>
           </div>
 

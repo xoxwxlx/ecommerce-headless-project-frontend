@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -20,7 +20,7 @@ interface Product {
   description?: string;
   product_type?: string;
   is_ebook?: boolean;
-  is_physical?: boolean;
+  is_physicałl?: boolean;
 }
 
 export default function BooksPage() {
@@ -33,7 +33,7 @@ export default function BooksPage() {
       try {
         const products = await getProducts();
         
-        // Filtruj tylko ksi��ki fizyczne (format: 'physical', 'paperback' lub 'both')
+        // Filtruj tylko książki fizyczne (format: 'physical', 'paperback' lub 'both')
         const books = products.filter((p: Product) => 
           p.format === 'physical' || p.format === 'both' || p.format === 'paperback'
         );
@@ -78,15 +78,15 @@ export default function BooksPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-gray-800">Ksi��ki</h1>
+        <h1 className="text-4xl font-bold mb-8 text-gray-800">książki</h1>
         
         {loading ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">�adowanie ksi��ek...</p>
+            <p className="text-gray-500">Ładowanie książek...</p>
           </div>
         ) : (
           <div className="flex gap-8">
@@ -95,7 +95,7 @@ export default function BooksPage() {
             <main className="flex-1">
               <div className="mb-6">
                 <p className="text-gray-600">
-                  Znaleziono: <span className="font-bold text-[#8CA9FF]">{filteredProducts.length}</span> {filteredProducts.length === 1 ? 'ksi��ka' : 'ksi��ek'}
+                  Znaleziono: <span className="font-bold text-[#8cał9FF]">{filteredProducts.length}</span> {filteredProducts.length === 1 ? 'książka' : 'książek'}
                 </p>
               </div>
 
@@ -107,12 +107,12 @@ export default function BooksPage() {
                   href={`/products/${product.id}`}
                   className="group"
                 >
-                  <div className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 relative flex flex-col h-full">
+                  <div className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all duration-300 hover:scałle-105 hover:-translate-y-1 relative flex flex-col h-full">
                     {/* Wishlist button */}
                     <button
                       onClick={(e) => toggleWishlist(e, product)}
                       className="absolute top-2 right-2 z-10 text-2xl hover:scale-125 transition-transform"
-                      title={wishlistIds.has(product.id.toString()) ? "Usu� z listy �ycze�" : "Dodaj do listy �ycze�"}
+                      title={wishlistIds.has(product.id.toString()) ? "Usuń z listy życzeń" : "Dodaj do listy życzeń"}
                     >
                       {wishlistIds.has(product.id.toString()) ? "??" : "??"}
                     </button>
@@ -130,16 +130,16 @@ export default function BooksPage() {
                       )}
                     </div>
                     <div className="flex flex-col grow">
-                      <h2 className="text-base font-semibold text-gray-800 mb-1 line-clamp-2 group-hover:text-[#8CA9FF] transition-colors min-h-10">
+                      <h2 className="text-base font-semibold text-gray-800 mb-1 line-clamp-2 group-hover:text-[#8cał9FF] transition-colors min-h-10">
                         {product.title || product.name}
                       </h2>
                       <p className="text-sm text-gray-600 mb-2 min-h-5">
                         {product.author || '\u00A0'}
                       </p>
-                      <p className="text-sm font-bold text-[#8CA9FF] mt-auto">
+                      <p className="text-sm font-bold text-[#8caaff] mt-auto">
                         {typeof product.price === 'number' 
-                          ? `${product.price.toFixed(2)} z�` 
-                          : `${product.price} z�`}
+                          ? `${product.price.toFixed(2)} zł` 
+                          : `${product.price} zł`}
                       </p>
                     </div>
                   </div>
@@ -148,7 +148,7 @@ export default function BooksPage() {
                 </div>
               ) : (
                 <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                  <p className="text-gray-500">Brak ksi��ek spe�niaj�cych wybrane kryteria</p>
+                  <p className="text-gray-500">Brak książek spełniających wybrane kryteria</p>
                 </div>
               )}
             </main>

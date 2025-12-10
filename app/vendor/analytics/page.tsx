@@ -41,7 +41,7 @@ export default function VendorAnalyticsPage() {
         setAnalytics(data);
       } catch (err) {
         console.error('Failed to fetch analytics:', err);
-        setError('Nie uda³o siê pobraæ danych analitycznych');
+        setError('Nie udaï¿½o siï¿½ pobraï¿½ danych analitycznych');
       } finally {
         setLoading(false);
       }
@@ -55,7 +55,7 @@ export default function VendorAnalyticsPage() {
       <VendorLayout>
         <div className="text-center py-12">
           <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-[#8CA9FF] mx-auto mb-4"></div>
-          <p className="text-gray-600">£adowanie analityki...</p>
+          <p className="text-gray-600">ï¿½adowanie analityki...</p>
         </div>
       </VendorLayout>
     );
@@ -68,10 +68,10 @@ export default function VendorAnalyticsPage() {
           <div className="text-6xl mb-4">??</div>
           <h2 className="text-2xl font-bold mb-2">Brak danych analitycznych</h2>
           <p className="mb-4">
-            {error || 'Dane analityczne bêd¹ dostêpne po pierwszych sprzeda¿ach.'}
+            {error || 'Dane analityczne bï¿½dï¿½ dostï¿½pne po pierwszych sprzedaï¿½ach.'}
           </p>
           <p className="text-sm">
-            System automatycznie rozpocznie zbieranie danych po pierwszym zamówieniu.
+            System automatycznie rozpocznie zbieranie danych po pierwszym zamï¿½wieniu.
           </p>
         </div>
       </VendorLayout>
@@ -90,7 +90,7 @@ export default function VendorAnalyticsPage() {
             Analityka ??
           </h1>
           <p className="text-gray-600">
-            Analizuj sprzeda¿ i wydajnoœæ swoich produktów
+            Analizuj sprzedaï¿½ i wydajnoï¿½ï¿½ swoich produktï¿½w
           </p>
         </div>
 
@@ -99,9 +99,9 @@ export default function VendorAnalyticsPage() {
           <div className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-[#8CA9FF]">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium mb-1">Ca³kowita sprzeda¿</p>
+                <p className="text-gray-600 text-sm font-medium mb-1">Caï¿½kowita sprzedaï¿½</p>
                 <p className="text-4xl font-bold text-gray-800">{analytics.total_sales || 0}</p>
-                <p className="text-xs text-gray-500 mt-1">Sprzedanych produktów</p>
+                <p className="text-xs text-gray-500 mt-1">Sprzedanych produktï¿½w</p>
               </div>
               <div className="w-16 h-16 bg-[#8CA9FF]/10 rounded-full flex items-center justify-center">
                 <span className="text-3xl">??</span>
@@ -112,11 +112,11 @@ export default function VendorAnalyticsPage() {
           <div className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-green-500">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium mb-1">Przychód</p>
+                <p className="text-gray-600 text-sm font-medium mb-1">Przychï¿½d</p>
                 <p className="text-4xl font-bold text-gray-800">
                   {(analytics.total_revenue || 0).toFixed(2)}
                 </p>
-                <p className="text-xs text-gray-500 mt-1">Z³otych</p>
+                <p className="text-xs text-gray-500 mt-1">Zï¿½otych</p>
               </div>
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
                 <span className="text-3xl">??</span>
@@ -127,9 +127,9 @@ export default function VendorAnalyticsPage() {
           <div className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-[#AAC4F5]">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium mb-1">Zamówienia</p>
+                <p className="text-gray-600 text-sm font-medium mb-1">Zamï¿½wienia</p>
                 <p className="text-4xl font-bold text-gray-800">{analytics.total_orders || 0}</p>
-                <p className="text-xs text-gray-500 mt-1">Ca³kowita liczba</p>
+                <p className="text-xs text-gray-500 mt-1">Caï¿½kowita liczba</p>
               </div>
               <div className="w-16 h-16 bg-[#AAC4F5]/10 rounded-full flex items-center justify-center">
                 <span className="text-3xl">??</span>
@@ -141,11 +141,11 @@ export default function VendorAnalyticsPage() {
         {/* Sales by Month Chart */}
         {analytics.sales_by_month && analytics.sales_by_month.length > 0 && (
           <div className="bg-white rounded-2xl shadow-md p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Sprzeda¿ w czasie</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Sprzedaï¿½ w czasie</h2>
             
             {/* Sales Chart */}
             <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-700 mb-4">Liczba sprzedanych produktów</h3>
+              <h3 className="text-lg font-semibold text-gray-700 mb-4">Liczba sprzedanych produktï¿½w</h3>
               <div className="space-y-3">
                 {analytics.sales_by_month.map((item, index) => (
                   <div key={index} className="flex items-center gap-4">
@@ -155,7 +155,7 @@ export default function VendorAnalyticsPage() {
                     <div className="flex-1">
                       <div className="relative h-10 bg-gray-100 rounded-lg overflow-hidden">
                         <div
-                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#8CA9FF] to-[#AAC4F5] flex items-center justify-end pr-3 transition-all duration-500"
+                          className="absolute inset-y-0 left-0 bg-linear-to-r from-[#8CA9FF] to-[#AAC4F5] flex items-center justify-end pr-3 transition-all duration-500"
                           style={{ width: `${(item.sales / maxSales) * 100}%` }}
                         >
                           <span className="text-white font-semibold text-sm">
@@ -171,7 +171,7 @@ export default function VendorAnalyticsPage() {
 
             {/* Revenue Chart */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-700 mb-4">Przychód (z³)</h3>
+              <h3 className="text-lg font-semibold text-gray-700 mb-4">Przychï¿½d (zï¿½)</h3>
               <div className="space-y-3">
                 {analytics.sales_by_month.map((item, index) => (
                   <div key={index} className="flex items-center gap-4">
@@ -181,11 +181,11 @@ export default function VendorAnalyticsPage() {
                     <div className="flex-1">
                       <div className="relative h-10 bg-gray-100 rounded-lg overflow-hidden">
                         <div
-                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-end pr-3 transition-all duration-500"
+                          className="absolute inset-y-0 left-0 bg-linear-to-r from-green-400 to-green-600 flex items-center justify-end pr-3 transition-all duration-500"
                           style={{ width: `${(item.revenue / maxRevenue) * 100}%` }}
                         >
                           <span className="text-white font-semibold text-sm">
-                            {item.revenue.toFixed(2)} z³
+                            {item.revenue.toFixed(2)} zï¿½
                           </span>
                         </div>
                       </div>
@@ -210,7 +210,7 @@ export default function VendorAnalyticsPage() {
                     key={product.id}
                     className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-[#8CA9FF] transition-colors"
                   >
-                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-[#8CA9FF] to-[#AAC4F5] text-white font-bold">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-linear-to-brrom-[#8CA9FF] to-[#AAC4F5] text-white font-bold">
                       {index + 1}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -223,7 +223,7 @@ export default function VendorAnalyticsPage() {
                     </div>
                     <div className="text-right">
                       <p className="font-bold text-green-600">
-                        {product.revenue.toFixed(2)} z³
+                        {product.revenue.toFixed(2)} zï¿½
                       </p>
                     </div>
                   </div>
@@ -236,14 +236,14 @@ export default function VendorAnalyticsPage() {
           {analytics.sales_by_format && (
             <div className="bg-white rounded-2xl shadow-md p-6">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Sprzeda¿ wed³ug formatu ??
+                Sprzedaï¿½ wedï¿½ug formatu ??
               </h2>
               <div className="space-y-4">
                 {analytics.sales_by_format.physical !== undefined && (
                   <div>
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-700 font-medium flex items-center gap-2">
-                        <span>??</span> Ksi¹¿ki fizyczne
+                        <span>??</span> Ksiï¿½ï¿½ki fizyczne
                       </span>
                       <span className="font-bold text-[#8CA9FF]">
                         {analytics.sales_by_format.physical}
@@ -323,11 +323,11 @@ export default function VendorAnalyticsPage() {
 
               <div className="mt-6 p-4 bg-[#F0F4FF] rounded-lg">
                 <p className="text-sm text-gray-700">
-                  <strong>Œrednia wartoœæ zamówienia:</strong>{' '}
+                  <strong>ï¿½rednia wartoï¿½ï¿½ zamï¿½wienia:</strong>{' '}
                   {analytics.total_orders > 0
                     ? (analytics.total_revenue / analytics.total_orders).toFixed(2)
                     : '0.00'}{' '}
-                  z³
+                  zï¿½
                 </p>
               </div>
             </div>

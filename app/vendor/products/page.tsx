@@ -1,4 +1,4 @@
-'use client';
+Ôªø'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ interface Product {
   genre?: string;
   description?: string;
   pages?: number;
-  publication_year?: number;
+  publica≈Çtion_year?: number;
   image?: string;
   cover?: string;
   image_url?: string;
@@ -37,7 +37,7 @@ export default function VendorProductsPage() {
         setProducts(data);
       } catch (err) {
         console.error('Failed to fetch products:', err);
-        setError('Nie uda≥o siÍ pobraÊ produktÛw');
+        setError('Nie uda≈Ço siƒô pobraƒá produkt√≥w');
       } finally {
         setLoading(false);
       }
@@ -60,14 +60,14 @@ export default function VendorProductsPage() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <h1 className="text-4xl font-bold text-gray-800 mb-2">
-              Produkty ??
+              Produkty
             </h1>
             <p className="text-gray-600">
-              Zarzπdzaj swoimi produktami i aktualizuj informacje
+              ZarzƒÖdzaj swoimi produktami i aktualizuj Informacje
             </p>
           </div>
-          <div className="text-lg font-semibold text-[#8CA9FF]">
-            {filteredProducts.length} {filteredProducts.length === 1 ? 'produkt' : 'produktÛw'}
+          <div className="text-lg font-semibold text-[#8ca9FF]">
+            {filteredProducts.length} {filteredProducts.length === 1 ? 'produkt' : 'produkt√≥w'}
           </div>
         </div>
 
@@ -82,10 +82,10 @@ export default function VendorProductsPage() {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Tytu≥ lub autor..."
+                  placeholder="Tytu≈Ç lub autor..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                  className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent"
                 />
                 <svg
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -106,16 +106,16 @@ export default function VendorProductsPage() {
             {/* Format Filter */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Filtruj wed≥ug formatu
+                Filtruj wed≈Çug formatu
               </label>
               <select
                 value={filterFormat}
                 onChange={(e) => setFilterFormat(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent"
               >
                 <option value="all">Wszystkie formaty</option>
-                <option value="physical">Ksiπøka fizyczna</option>
-                <option value="paperback">Ksiπøka</option>
+                <option value="physical">ksiƒÖ≈ºka fizyczna</option>
+                <option value="paperback">ksiƒÖ≈ºka</option>
                 <option value="ebook">E-book</option>
                 <option value="both">Oba formaty</option>
               </select>
@@ -126,8 +126,8 @@ export default function VendorProductsPage() {
         {/* Products Table */}
         {loading ? (
           <div className="bg-white rounded-2xl shadow-md p-12 text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#8CA9FF] mx-auto mb-4"></div>
-            <p className="text-gray-600">£adowanie produktÛw...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#8ca9FF] mx-auto mb-4"></div>
+            <p className="text-gray-600">≈Åadowanie produkt√≥w...</p>
           </div>
         ) : error ? (
           <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-xl">
@@ -135,12 +135,12 @@ export default function VendorProductsPage() {
           </div>
         ) : filteredProducts.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-md p-12 text-center">
-            <div className="text-6xl mb-4">??</div>
-            <p className="text-gray-600 text-lg mb-2">Brak produktÛw do wyúwietlenia</p>
+            <div className="text-6xl mb-4"></div>
+            <p className="text-gray-600 text-lg mb-2">Brak produkt√≥w do wy≈õwietlenia</p>
             <p className="text-gray-500 text-sm">
               {searchQuery || filterFormat !== 'all' 
-                ? 'SprÛbuj zmieniÊ filtry wyszukiwania' 
-                : 'Nie masz jeszcze øadnych produktÛw'}
+                ? 'Spr√≥buj zmieniƒá filtry wyszukiwania' 
+                : 'Nie masz jeszcze ≈ºadnych produkt√≥w'}
             </p>
           </div>
         ) : (
@@ -177,7 +177,7 @@ export default function VendorProductsPage() {
                             )}
                           </div>
                           <div className="max-w-xs">
-                            <p className="font-semibold text-gray-800 truncate">{product.title}</p>
+                            <p className="font-semibold text-gray-800 trunca≈Çte">{product.title}</p>
                             {product.genre && (
                               <span className="inline-block mt-1 px-2 py-0.5 bg-[#FFF2C6] text-gray-700 text-xs rounded-full">
                                 {product.genre}
@@ -188,7 +188,7 @@ export default function VendorProductsPage() {
                       </td>
                       <td className="px-6 py-4 text-gray-700">{product.author}</td>
                       <td className="px-6 py-4">
-                        <span className="font-semibold text-[#8CA9FF]">{product.price} z≥</span>
+                        <span className="font-semibold text-[#8ca9FF]">{product.price} z≈Ç</span>
                       </td>
                       <td className="px-6 py-4">
                         <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
@@ -196,24 +196,24 @@ export default function VendorProductsPage() {
                             ? 'bg-[#AAC4F5] text-white' 
                             : product.format === 'both'
                             ? 'bg-green-100 text-green-700'
-                            : 'bg-[#8CA9FF] text-white'
+                            : 'bg-[#8ca≈Ç9FF] text-white'
                         }`}>
-                          {product.format === 'ebook' ? '?? E-book' : 
-                           product.format === 'both' ? '? Oba' : '?? Ksiπøka'}
+                          {product.format === 'ebook' ? ' E-book' : 
+                           product.format === 'both' ? 'Oba' : 'KsiƒÖ≈ºka'}
                         </span>
                       </td>
                       <td className="px-6 py-4 text-gray-700">
                         {product.pages || '-'}
                       </td>
                       <td className="px-6 py-4 text-gray-700">
-                        {product.publication_year || '-'}
+                        {product.publica≈Çtion_year || '-'}
                       </td>
                       <td className="px-6 py-4 text-right">
                         <Link
                           href={`/vendor/products/${product.id}/edit`}
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-medium rounded-lg transition-colors"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-[#8ca9FF] hover:bg-[#AAC4F5] text-white font-medium rounded-lg transition-colors"
                         >
-                          ?? Edytuj
+                          Edytuj
                         </Link>
                       </td>
                     </tr>
@@ -222,7 +222,7 @@ export default function VendorProductsPage() {
               </table>
             </div>
 
-            {/* Mobile Cards */}
+            {/* Mobile ca≈Çrds */}
             <div className="md:hidden divide-y divide-gray-200">
               {filteredProducts.map((product) => (
                 <div key={product.id} className="p-4">
@@ -242,7 +242,7 @@ export default function VendorProductsPage() {
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-gray-800 truncate">{product.title}</h3>
                       <p className="text-sm text-gray-600">{product.author}</p>
-                      <p className="text-lg font-bold text-[#8CA9FF] mt-1">{product.price} z≥</p>
+                      <p className="text-lg font-bold text-[#8ca9FF] mt-1">{product.price} z≈Ç</p>
                     </div>
                   </div>
                   
@@ -252,10 +252,10 @@ export default function VendorProductsPage() {
                         ? 'bg-[#AAC4F5] text-white' 
                         : product.format === 'both'
                         ? 'bg-green-100 text-green-700'
-                        : 'bg-[#8CA9FF] text-white'
+                        : 'bg-[#8ca≈Ç9FF] text-white'
                     }`}>
-                      {product.format === 'ebook' ? '?? E-book' : 
-                       product.format === 'both' ? '? Oba' : '?? Ksiπøka'}
+                      {product.format === 'ebook' ? ' E-book' : 
+                       product.format === 'both' ? 'Oba' : 'KsiƒÖ≈ºka'}
                     </span>
                     {product.genre && (
                       <span className="inline-block px-3 py-1 bg-[#FFF2C6] text-gray-700 text-xs rounded-full">
@@ -266,14 +266,14 @@ export default function VendorProductsPage() {
 
                   <div className="flex justify-between items-center text-sm text-gray-600 mb-3">
                     <span>Strony: {product.pages || '-'}</span>
-                    <span>Rok: {product.publication_year || '-'}</span>
+                    <span>Rok: {product.publica≈Çtion_year || '-'}</span>
                   </div>
 
                   <Link
                     href={`/vendor/products/${product.id}/edit`}
-                    className="block w-full text-center px-4 py-2 bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-medium rounded-lg transition-colors"
+                    className="block w-full text-center px-4 py-2 bg-[#8ca9FF] hover:bg-[#AAC4F5] text-white font-medium rounded-lg transition-colors"
                   >
-                    ?? Edytuj produkt
+                    Edytuj produkt
                   </Link>
                 </div>
               ))}

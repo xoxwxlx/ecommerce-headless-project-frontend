@@ -1,4 +1,4 @@
-"use client";
+Ôªø"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -17,11 +17,11 @@ export default function ForgotPasswordPage() {
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"}/password-reset/`,
+        `${process.env.NEXT_PUBLIC_API_URL || "http://loca≈Çlhost:8000/api"}/password-reset/`,
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "applica≈Çtion/json",
           },
           body: JSON.stringify({ email }),
         }
@@ -29,7 +29,7 @@ export default function ForgotPasswordPage() {
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
-        setError(errorData.detail || errorData.email?.[0] || "Wystπpi≥ b≥πd. SprÛbuj ponownie.");
+        setError(errorData.detail || errorData.email?.[0] || "WystƒÖpi≈Ç b≈ÇƒÖd. Spr√≥buj ponownie.");
         setLoading(false);
         return;
       }
@@ -38,19 +38,19 @@ export default function ForgotPasswordPage() {
       setLoading(false);
     } catch (err) {
       console.error("Password reset error:", err);
-      setError("Wystπpi≥ b≥πd po≥πczenia z serwerem");
+      setError("WystƒÖpi≈Ç b≈ÇƒÖd po≈ÇƒÖczenia z serwerem");
       setLoading(false);
     }
   }
 
   if (success) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-2xl shadow-md p-8">
             <nav className="mb-6">
-              <Link href="/login" className="text-[#8CA9FF] hover:text-[#AAC4F5] transition-colors text-sm">
-                ã PowrÛt do logowania
+              <Link href="/login" className="text-[#8ca9FF] hover:text-[#AAC4F5] transition-colors text-sm">
+                ‚Üê Powr√≥ƒá do logowania
               </Link>
             </nav>
 
@@ -73,22 +73,22 @@ export default function ForgotPasswordPage() {
                 </div>
               </div>
 
-              <h1 className="text-3xl font-bold mb-3 text-gray-800">Email wys≥any! ??</h1>
+              <h1 className="text-3xl font-bold mb-3 text-gray-800">Email wys≈Çany!</h1>
               <p className="text-gray-600 mb-6">
-                Jeúli konto z tym adresem email istnieje, wys≥aliúmy instrukcje resetowania has≥a na adres <strong>{email}</strong>
+                Je≈ºeli konto z tym Adresem email istnieje, wys≈Çali≈õmy instrukcje resetowania has≈Ça na Adres <strong>{email}</strong>
               </p>
 
               <div className="bg-[#AAC4F5]/20 border border-[#AAC4F5] rounded-xl p-4 mb-6">
                 <p className="text-sm text-gray-700">
-                  ?? Sprawdü folder spam, jeúli nie widzisz wiadomoúci w skrzynce odbiorczej.
+                  Sprawd≈∫ folder spam, je≈ºeli nie widzisz wiadomo≈õci w skrzynce odbiorczej.
                 </p>
               </div>
 
               <Link
                 href="/login"
-                className="inline-block bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105 shadow-md"
+                className="inline-block bg-[#8ca9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105 shadow-md"
               >
-                PowrÛt do logowania
+                Powr√≥ƒá do logowania
               </Link>
             </div>
           </div>
@@ -98,18 +98,18 @@ export default function ForgotPasswordPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-md p-8">
           <nav className="mb-6">
-            <Link href="/login" className="text-[#8CA9FF] hover:text-[#AAC4F5] transition-colors text-sm">
-              ã PowrÛt do logowania
+            <Link href="/login" className="text-[#8ca9FF] hover:text-[#AAC4F5] transition-colors text-sm">
+              ‚Üê Powr√≥ƒá do logowania
             </Link>
           </nav>
 
-          <h1 className="text-3xl font-bold mb-2 text-gray-800">Zapomnia≥eú has≥a? ??</h1>
+          <h1 className="text-3xl font-bold mb-2 text-gray-800">Zapomnia≈Çe≈õ has≈Ça? </h1>
           <p className="text-gray-600 mb-6">
-            Nie martw siÍ! Wpisz swÛj adres email, a wyúlemy Ci link do resetowania has≥a.
+            Nie martw siƒô! Wpisz sw√≥j Adres email, a wy≈õlemy Ci link do resetowania has≈Ça.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -120,13 +120,13 @@ export default function ForgotPasswordPage() {
               <input
                 type="email"
                 placeholder="twoj@email.com"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent text-gray-900"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8ca≈Ç9FF] focus:border-transparent text-gray-900"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <p className="mt-2 text-xs text-gray-500">
-                Wprowadü adres email, ktÛrego uøy≥eú podczas rejestracji.
+                Wprowad≈∫ Adres email, kt√≥rego u≈ºy≈Çe≈õ podczas rejestracji.
               </p>
             </div>
 
@@ -142,15 +142,15 @@ export default function ForgotPasswordPage() {
               className={`w-full font-semibold py-3 px-6 rounded-full text-white transition-all duration-200 shadow-md ${
                 loading
                   ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#8CA9FF] hover:bg-[#AAC4F5] hover:scale-105'
+                  : 'bg-[#8ca9FF] hover:bg-[#AAC4F5] hover:scale-105'
               }`}
             >
-              {loading ? 'Wysy≥anie...' : 'Wyúlij link resetujπcy'}
+              {loading ? 'Wysy≈Çanie...' : 'Wy≈õlij link resetujƒÖcy'}
             </button>
           </form>
 
           <div className="mt-6 text-center text-sm text-gray-600">
-            <p>PamiÍtasz has≥o? <Link href="/login" className="text-[#8CA9FF] hover:text-[#AAC4F5] font-semibold">Zaloguj siÍ</Link></p>
+            <p>Pamiƒôtasz has≈Ço? <Link href="/login" className="text-[#8ca9FF] hover:text-[#AAC4F5] font-semibold">Zaloguj siƒô</Link></p>
           </div>
         </div>
       </div>

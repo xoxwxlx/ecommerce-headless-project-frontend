@@ -70,7 +70,7 @@ export default function AccountSettingsPage() {
       
       setMessage('Ustawienia zostały zapisane pomyślnie!');
       setTimeout(() => setMessage(''), 3000);
-    } catch (error) {
+    } catch {
       setMessage('Wystąpił błąd podczas zapisywania ustawień.');
     } finally {
       setSaving(false);
@@ -102,7 +102,7 @@ export default function AccountSettingsPage() {
         confirmPassword: ''
       });
       setTimeout(() => setMessage(''), 3000);
-    } catch (error) {
+    } catch {
       setMessage('Wystąpił błąd podczas zmiany hasła.');
     } finally {
       setSaving(false);

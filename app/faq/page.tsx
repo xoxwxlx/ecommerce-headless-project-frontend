@@ -1,4 +1,4 @@
-'use client';
+ï»¿'use client';
 
 import { useState } from 'react';
 import Header from '@/app/components/Header';
@@ -6,44 +6,44 @@ import Footer from '@/app/components/Footer';
 
 const faqs = [
   {
-    question: "Jak mogê z³o¿yæ zamówienie?",
-    answer: "Aby z³o¿yæ zamówienie, wybierz interesuj¹c¹ Ciê ksi¹¿kê lub e-book, dodaj do koszyka i przejdŸ do finalizacji zamówienia. Postêpuj zgodnie z instrukcjami na ekranie."
+    question: "Jak mogÄ™ zÅ‚oÅ¼yÄ‡ zamÃ³wienie?",
+    answer: "Aby zÅ‚oÅ¼yÄ‡ zamÃ³wienie, wybierz interesujÄ…cÄ… CiÄ™ ksiÄ…Å¼kÄ™ lub e-book, dodaj do koszyka i przejdÅº do finalizacji zamÃ³wienia. PostÄ™puj zgodnie z instrukcjami na ekranie."
   },
   {
-    question: "Jakie metody p³atnoœci s¹ dostêpne?",
-    answer: "Akceptujemy karty kredytowe, debetowe, przelewy bankowe oraz szybkie p³atnoœci online przez popularne systemy p³atnoœci."
+    question: "Jakie metody pÅ‚atnoÅ›ci sÄ… dostÄ™pne?",
+    answer: "Akceptujemy karty kredytowe, debetowe, przelewy bankowe oraz szybkie pÅ‚atnoÅ›ci online przez popularne systemy pÅ‚atnoÅ›ci."
   },
   {
-    question: "Czy mogê zwróciæ produkt?",
-    answer: "Tak, zgodnie z przepisami masz 14 dni na zwrot produktu bez podania przyczyny. E-booki mo¿na zwróciæ tylko jeœli nie zosta³y jeszcze pobrane."
+    question: "Czy mogÄ™ zwrÃ³ciÄ‡ produkt?",
+    answer: "Tak, zgodnie z przepisami masz 14 dni na zwrot produktu bez podania przyczyny. E-booki moÅ¼na zwrÃ³ciÄ‡ tylko jeÅ›li nie zostaÅ‚y jeszcze pobrane."
   },
   {
     question: "Ile trwa dostawa?",
-    answer: "Standardowa dostawa ksi¹¿ek fizycznych trwa 2-3 dni robocze. E-booki s¹ dostêpne natychmiast po op³aceniu zamówienia."
+    answer: "Standardowa dostawa ksiÄ…Å¼ek fizycznych trwa 2-3 dni robocze. E-booki sÄ… dostÄ™pne natychmiast po opÅ‚aceniu zamÃ³wienia."
   },
   {
-    question: "Czy muszê za³o¿yæ konto, aby zamówiæ?",
-    answer: "Nie, mo¿esz z³o¿yæ zamówienie jako goœæ. Jednak posiadanie konta pozwala na œledzenie zamówieñ i szybsze zakupy w przysz³oœci."
+    question: "Czy muszÄ™ zaÅ‚oÅ¼yÄ‡ konto, aby zamÃ³wiÄ‡?",
+    answer: "Nie, moÅ¼esz zÅ‚oÅ¼yÄ‡ zamÃ³wienie jako goÅ›Ä‡. Jednak posiadanie konta pozwala na Å›ledzenie zamÃ³wieÅ„ i szybsze zakupy w przyszÅ‚oÅ›ci."
   },
   {
-    question: "Jak mogê œledziæ moj¹ przesy³kê?",
-    answer: "Po wysy³ce zamówienia otrzymasz e-mail z numerem œledzenia, który pozwoli Ci monitorowaæ status przesy³ki."
+    question: "Jak mogÄ™ Å›ledziÄ‡ mojÄ… przesyÅ‚kÄ™?",
+    answer: "Po wysyÅ‚ce zamÃ³wienia otrzymasz e-mail z numerem Å›ledzenia, ktÃ³ry pozwoli Ci monitorowaÄ‡ status przesyÅ‚ki."
   },
   {
-    question: "Czy mogê anulowaæ zamówienie?",
-    answer: "Zamówienie mo¿na anulowaæ w ci¹gu 1 godziny od z³o¿enia. Po tym czasie prosimy o kontakt z obs³ug¹ klienta."
+    question: "Czy mogÄ™ anulowaÄ‡ zamÃ³wienie?",
+    answer: "ZamÃ³wienie moÅ¼na anulowaÄ‡ w ciÄ…gu 1 godziny od zÅ‚oÅ¼enia. Po tym czasie prosimy o kontakt z obsÅ‚ugÄ… klienta."
   },
   {
-    question: "Czy oferujecie ksi¹¿ki w jêzyku angielskim?",
-    answer: "Tak, w naszej ofercie znajduj¹ siê ksi¹¿ki zarówno w jêzyku polskim, jak i angielskim oraz innych jêzykach."
+    question: "Czy oferujecie ksiÄ…Å¼ki w jÄ™zyku angielskim?",
+    answer: "Tak, w naszej ofercie znajdujÄ… siÄ™ ksiÄ…Å¼ki zarÃ³wno w jÄ™zyku polskim, jak i angielskim oraz innych jÄ™zykach."
   },
   {
-    question: "Jak pobraæ zakupiony e-book?",
-    answer: "Po op³aceniu zamówienia znajdziesz link do pobrania e-booka w swoim koncie w sekcji zamówienia oraz otrzymasz go na e-mail."
+    question: "Jak pobraÄ‡ zakupiony e-book?",
+    answer: "Po opÅ‚aceniu zamÃ³wienia znajdziesz link do pobrania e-booka w swoim koncie w sekcji zamÃ³wienia oraz otrzymasz go na e-mail."
   },
   {
-    question: "Czy oferujecie rabaty dla sta³ych klientów?",
-    answer: "Tak, oferujemy program lojalnoœciowy oraz regularne promocje dla zarejestrowanych u¿ytkowników. Sprawdzaj nasz¹ stronê regularnie."
+    question: "Czy oferujecie rabaty dla staÅ‚ych klientÃ³w?",
+    answer: "Tak, oferujemy program lojalnoÅ›ciowy oraz regularne promocje dla zarejestrowanych uÅ¼ytkownikÃ³w. Sprawdzaj naszÄ… stronÄ™ regularnie."
   }
 ];
 
@@ -60,10 +60,10 @@ export default function FAQPage() {
       
       <main className="max-w-4xl mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center">
-          Najczêœciej zadawane pytania
+          NajczÄ™Å›ciej zadawane pytania
         </h1>
         <p className="text-gray-600 text-center mb-12">
-          ZnajdŸ odpowiedzi na najpopularniejsze pytania dotycz¹ce naszej ksiêgarni
+          ZnajdÅº odpowiedzi na najpopularniejsze pytania dotyczÄ…ce naszej ksiÄ™garni
         </p>
 
         <div className="space-y-4">
@@ -95,9 +95,9 @@ export default function FAQPage() {
           ))}
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-[#8CA9FF] to-[#AAC4F5] rounded-lg p-8 text-center text-white">
-          <h2 className="text-2xl font-bold mb-4">Nie znalaz³eœ odpowiedzi?</h2>
-          <p className="mb-6">Skontaktuj siê z nami, a chêtnie pomo¿emy</p>
+        <div className="mt-12 bg-linear-to-r from-[#8CA9FF] to-[#AAC4F5] rounded-lg p-8 text-center text-white">
+          <h2 className="text-2xl font-bold mb-4">Nie znalazÅ‚eÅ› odpowiedzi?</h2>
+          <p className="mb-6">Skontaktuj siÄ™ z nami, a chÄ™tnie pomoÅ¼emy</p>
           <a
             href="/contact"
             className="inline-block bg-white text-[#8CA9FF] font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors"

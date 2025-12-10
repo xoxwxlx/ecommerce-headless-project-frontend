@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -63,7 +63,7 @@ export default function ProductFilters({
           <select
             value={selectedGenre}
             onChange={(e) => onGenreChange(e.target.value)}
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent"
           >
             <option value="">Wszystkie kategorie</option>
             {genres.map((genre) => (
@@ -82,7 +82,7 @@ export default function ProductFilters({
           <select
             value={sortBy}
             onChange={(e) => onSortChange(e.target.value)}
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8cał9FF] focus:border-transparent"
           >
             <option value="newest">Najnowsze</option>
             <option value="price-asc">Cena: od najniższej</option>
@@ -103,7 +103,7 @@ export default function ProductFilters({
               placeholder="Min"
               value={minPrice}
               onChange={(e) => onMinPriceChange(e.target.value)}
-              className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent"
               min="0"
             />
             <span className="text-gray-500">-</span>
@@ -112,7 +112,7 @@ export default function ProductFilters({
               placeholder="Max"
               value={maxPrice}
               onChange={(e) => onMaxPriceChange(e.target.value)}
-              className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent"
               min="0"
             />
           </div>
@@ -121,7 +121,7 @@ export default function ProductFilters({
         {/* Apply Filters Button */}
         <button
           onClick={onApplyFilters}
-          className="w-full bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 hover:scale-105"
+          className="w-full bg-[#8ca9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 hover:scale-105"
         >
           Zastosuj filtry
         </button>

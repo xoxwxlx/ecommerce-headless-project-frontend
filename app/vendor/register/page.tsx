@@ -91,7 +91,7 @@ export default function VendorRegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] py-16 px-4">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] py-16 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-6">

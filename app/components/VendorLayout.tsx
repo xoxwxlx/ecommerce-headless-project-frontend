@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
@@ -45,10 +45,10 @@ export default function VendorLayout({ children }: VendorLayoutProps) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-[#8CA9FF] mx-auto mb-4"></div>
-          <p className="text-gray-600 text-lg">Sprawdzanie uprawnie�...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-[#8ca9FF] mx-auto mb-4"></div>
+          <p className="text-gray-600 text-lg">Sprawdzanie uprawnień...</p>
         </div>
       </div>
     );
@@ -59,7 +59,7 @@ export default function VendorLayout({ children }: VendorLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
       <div className="flex">
         <VendorSidebar />
         <main className="flex-1 lg:ml-0">

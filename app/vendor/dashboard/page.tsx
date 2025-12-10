@@ -1,4 +1,4 @@
-'use client';
+Ôªø'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ interface Product {
   format: string;
   genre?: string;
   pages?: number;
-  publication_year?: number;
+  publica≈Çtion_year?: number;
 }
 
 export default function VendorDashboard() {
@@ -31,7 +31,7 @@ export default function VendorDashboard() {
         setProducts(productsData);
       } catch (err) {
         console.error('Failed to fetch data:', err);
-        setError('Nie uda≥o siÍ pobraÊ danych');
+        setError('Nie uda≈Ço siƒô pobraƒá danych');
       } finally {
         setLoading(false);
       }
@@ -55,17 +55,17 @@ export default function VendorDashboard() {
         {/* Header */}
         <div>
           <h1 className="text-4xl font-bold text-gray-800 mb-2">
-            Dashboard ??
+            Dashboard
           </h1>
           <p className="text-gray-600">
-            Witaj w panelu dostawcy! Zarzπdzaj swoimi produktami i analizuj sprzedaø.
+            Witaj w panelu dostawcy! ZarzƒÖdzaj swoimi produktami i analizuj sprzeda≈º.
           </p>
         </div>
 
         {loading ? (
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#8CA9FF] mx-auto mb-4"></div>
-            <p className="text-gray-600">£adowanie danych...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#8ca9FF] mx-auto mb-4"></div>
+            <p className="text-gray-600">≈Åadowanie danych...</p>
           </div>
         ) : error ? (
           <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-xl">
@@ -73,16 +73,17 @@ export default function VendorDashboard() {
           </div>
         ) : (
           <>
-            {/* Stats Cards */}
+            {/* Stats cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-[#8CA9FF]">
+              <div className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-[#8ca9FF]">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-600 text-sm font-medium mb-1">Wszystkie produkty</p>
                     <p className="text-3xl font-bold text-gray-800">{stats.totalProducts}</p>
                   </div>
-                  <div className="w-12 h-12 bg-[#8CA9FF]/10 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">??</span>
+                  <div className="w-12 h-12 bg-[#8ca9FF]/10 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">
+                    </span>
                   </div>
                 </div>
               </div>
@@ -90,11 +91,11 @@ export default function VendorDashboard() {
               <div className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-[#AAC4F5]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-gray-600 text-sm font-medium mb-1">Ksiπøki fizyczne</p>
+                    <p className="text-gray-600 text-sm font-medium mb-1">KsiƒÖ≈ºki fizyczne</p>
                     <p className="text-3xl font-bold text-gray-800">{stats.booksCount}</p>
                   </div>
                   <div className="w-12 h-12 bg-[#AAC4F5]/10 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">??</span>
+                    <span className="text-2xl"></span>
                   </div>
                 </div>
               </div>
@@ -106,7 +107,7 @@ export default function VendorDashboard() {
                     <p className="text-3xl font-bold text-gray-800">{stats.ebooksCount}</p>
                   </div>
                   <div className="w-12 h-12 bg-[#FFF2C6]/30 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">??</span>
+                    <span className="text-2xl"></span>
                   </div>
                 </div>
               </div>
@@ -118,7 +119,7 @@ export default function VendorDashboard() {
                     <p className="text-3xl font-bold text-gray-800">{stats.bothCount}</p>
                   </div>
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">?</span>
+                    <span className="text-2xl"></span>
                   </div>
                 </div>
               </div>
@@ -130,34 +131,34 @@ export default function VendorDashboard() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Link
                   href="/vendor/products"
-                  className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl hover:border-[#8CA9FF] hover:bg-[#F0F4FF] transition-all duration-200 group"
+                  className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl hover:border-[#8ca≈Ç9FF] hover:bg-[#F0F4FF] transition-all duration-200 group"
                 >
                   <span className="text-3xl group-hover:scale-110 transition-transform">??</span>
                   <div>
-                    <p className="font-semibold text-gray-800">Zarzπdzaj produktami</p>
+                    <p className="font-semibold text-gray-800">ZarzƒÖdzaj produktami</p>
                     <p className="text-sm text-gray-600">Edytuj i aktualizuj</p>
                   </div>
                 </Link>
 
                 <Link
                   href="/vendor/analytics"
-                  className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl hover:border-[#8CA9FF] hover:bg-[#F0F4FF] transition-all duration-200 group"
+                  className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl hover:border-[#8ca≈Ç9FF] hover:bg-[#F0F4FF] transition-all duration-200 group"
                 >
                   <span className="text-3xl group-hover:scale-110 transition-transform">??</span>
                   <div>
-                    <p className="font-semibold text-gray-800">Zobacz analitykÍ</p>
-                    <p className="text-sm text-gray-600">Raporty sprzedaøy</p>
+                    <p className="font-semibold text-gray-800">Zobacz analitykƒô</p>
+                    <p className="text-sm text-gray-600">Raporty sprzeda≈ºy</p>
                   </div>
                 </Link>
 
                 <Link
                   href="/"
-                  className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl hover:border-[#8CA9FF] hover:bg-[#F0F4FF] transition-all duration-200 group"
+                  className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-xl hover:border-[#8ca≈Ç9FF] hover:bg-[#F0F4FF] transition-all duration-200 group"
                 >
                   <span className="text-3xl group-hover:scale-110 transition-transform">??</span>
                   <div>
-                    <p className="font-semibold text-gray-800">PowrÛt do sklepu</p>
-                    <p className="text-sm text-gray-600">Strona g≥Ûwna</p>
+                    <p className="font-semibold text-gray-800">Powr√≥ƒá do sklepu</p>
+                    <p className="text-sm text-gray-600">Strona g≈Ç√≥wna</p>
                   </div>
                 </Link>
               </div>
@@ -169,20 +170,20 @@ export default function VendorDashboard() {
                 <h2 className="text-2xl font-bold text-gray-800">Ostatnie produkty</h2>
                 <Link
                   href="/vendor/products"
-                  className="text-[#8CA9FF] hover:text-[#AAC4F5] font-medium text-sm"
+                  className="text-[#8ca9FF] hover:text-[#AAC4F5] font-medium text-sm"
                 >
-                  Zobacz wszystkie õ
+                  Zobacz wszystkie ‚Üí
                 </Link>
               </div>
 
               {recentProducts.length === 0 ? (
-                <p className="text-gray-500 text-center py-8">Brak produktÛw</p>
+                <p className="text-gray-500 text-center py-8">Brak produkt√≥w</p>
               ) : (
                 <div className="space-y-3">
                   {recentProducts.map((product) => (
                     <div
                       key={product.id}
-                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-[#8CA9FF] transition-colors"
+                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-[#8ca≈Ç9FF] transition-colors"
                     >
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-16 bg-[#AAC4F5]/20 rounded flex items-center justify-center">
@@ -196,12 +197,12 @@ export default function VendorDashboard() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold text-[#8CA9FF]">{product.price} z≥</p>
+                        <p className="font-bold text-[#8ca≈Ç9FF]">{product.price} z≈Ç</p>
                         <Link
                           href={`/vendor/products/${product.id}/edit`}
-                          className="text-sm text-gray-600 hover:text-[#8CA9FF] transition-colors"
+                          className="text-sm text-gray-600 hover:text-[#8ca≈Ç9FF] transition-colors"
                         >
-                          Edytuj õ
+                          Edytuj z≈Ç
                         </Link>
                       </div>
                     </div>

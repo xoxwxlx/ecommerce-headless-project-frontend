@@ -1,4 +1,4 @@
-"use client";
+ï»¿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -34,24 +34,24 @@ export default function RegisterPage() {
 
     // Walidacja
     if (!formData.email || !formData.password || !formData.firstName || !formData.lastName) {
-      setError("Wszystkie pola s¹ wymagane");
+      setError("Wszystkie pola sÄ… wymagane");
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Has³a nie s¹ zgodne");
+      setError("hasÅ‚a nie sÄ… zgodne");
       return;
     }
 
     if (formData.password.length < 8) {
-      setError("Has³o musi mieæ co najmniej 8 znaków");
+      setError("hasÅ‚o musi mieÄ‡ co najmniej 8 znakÃ³w");
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/register/", {
+      const response = await fetch("http://locaÅ‚lhost:8000/api/register/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,11 +71,11 @@ export default function RegisterPage() {
         // Rejestracja udana - przekieruj do logowania
         router.push("/login?registered=true");
       } else {
-        setError(data.message || data.error || "Wyst¹pi³ b³¹d podczas rejestracji");
+        setError(data.message || data.error || "WystÄ…piÅ‚ bÅ‚Ä…d podczas rejestracji");
       }
     } catch (err) {
       console.error("Registration error:", err);
-      setError("Nie mo¿na po³¹czyæ siê z serwerem");
+      setError("Nie moÅ¼na poÅ‚Ä…czyÄ‡ siÄ™ z serwerem");
     } finally {
       setLoading(false);
     }
@@ -92,7 +92,7 @@ export default function RegisterPage() {
               Rejestracja
             </h1>
             <p className="text-gray-600 text-center mb-8">
-              Stwórz nowe konto w naszej ksiêgarni
+              StwÃ³rz nowe konto w naszej ksiÄ™garni
             </p>
 
             {error && (
@@ -104,7 +104,7 @@ export default function RegisterPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Imiê
+                  imiÄ™
                 </label>
                 <input
                   type="text"
@@ -112,15 +112,15 @@ export default function RegisterPage() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent transition-all text-gray-900"
-                  placeholder="Twoje imiê"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent transition-all text-gray-900"
+                  placeholder="Twoje imiÄ™"
                   disabled={loading}
                 />
               </div>
 
               <div>
                 <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Nazwisko
+                  nazwisko
                 </label>
                 <input
                   type="text"
@@ -128,7 +128,7 @@ export default function RegisterPage() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent transition-all text-gray-900"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent transition-all text-gray-900"
                   placeholder="Twoje nazwisko"
                   disabled={loading}
                 />
@@ -144,7 +144,7 @@ export default function RegisterPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent transition-all text-gray-900"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent transition-all text-gray-900"
                   placeholder="twoj@email.com"
                   disabled={loading}
                 />
@@ -152,7 +152,7 @@ export default function RegisterPage() {
 
               <div>
                 <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Has³o
+                  hasÅ‚o
                 </label>
                 <input
                   type="password"
@@ -160,15 +160,15 @@ export default function RegisterPage() {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent transition-all text-gray-900"
-                  placeholder="Minimum 8 znaków"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent transition-all text-gray-900"
+                  placeholder="Minimum 8 znakÃ³w"
                   disabled={loading}
                 />
               </div>
 
               <div>
                 <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 mb-2">
-                  PotwierdŸ has³o
+                  PotwierdÅº hasÅ‚o
                 </label>
                 <input
                   type="password"
@@ -176,8 +176,8 @@ export default function RegisterPage() {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent transition-all text-gray-900"
-                  placeholder="Powtórz has³o"
+                  className="w-full px-4 py -3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8caÅ‚9FF] focus:border-transparent transition-all text-gray-900"
+                  placeholder="PowtÃ³rz hasÅ‚o"
                   disabled={loading}
                 />
               </div>
@@ -189,28 +189,28 @@ export default function RegisterPage() {
                   name="isVendor"
                   checked={formData.isVendor}
                   onChange={handleChange}
-                  className="w-5 h-5 text-[#8CA9FF] border-gray-300 rounded focus:ring-[#8CA9FF] focus:ring-2 cursor-pointer"
+                  className="w-5 h-5 text-[#8ca9FF] border-gray-300 rounded focus:ring-[#8ca9FF] focus:ring-2 cursor-pointer"
                   disabled={loading}
                 />
                 <label htmlFor="isVendor" className="ml-3 text-sm font-semibold text-gray-700 cursor-pointer">
-                  Jestem dostawc¹ (sprzedawc¹ ksi¹¿ek)
+                  Jestem dostawcÄ… (sprzedawcÄ… ksiÄ…Å¼ek)
                 </label>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-bold py-4 px-8 rounded-full transition-all duration-200 shadow-md hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full bg-[#8ca9FF] hover:bg-[#AAC4F5] text-white font-bold py-4 px-8 rounded-full transition-all duration-200 shadow-md hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                {loading ? "Rejestrowanie..." : "Zarejestruj siê"}
+                {loading ? "Rejestrowanie..." : "Zarejestruj siÄ™"}
               </button>
             </form>
 
             <div className="mt-6 text-center">
               <p className="text-gray-600">
-                Masz ju¿ konto?{" "}
-                <Link href="/login" className="text-[#8CA9FF] hover:text-[#AAC4F5] font-semibold transition-colors">
-                  Zaloguj siê
+                Masz juÅ¼ konto?{" "}
+                <Link href="/login" className="text-[#8ca9FF] hover:text-[#AAC4F5] font-semibold transition-colors">
+                  Zaloguj siÄ™
                 </Link>
               </p>
             </div>

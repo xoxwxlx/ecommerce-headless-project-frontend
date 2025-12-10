@@ -1,9 +1,9 @@
-'use client';
+Ôªø'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 
-interface CartItem {
+interface cartItem {
   id: number;
   name: string;
   price: string;
@@ -13,7 +13,7 @@ interface CartItem {
 }
 
 export default function CartPage() {
-  const [cart, setCart] = useState<CartItem[]>(() => {
+  const [cart, setCart] = useState<cartItem[]>(() => {
     if (typeof window !== 'undefined') {
       const cartData = localStorage.getItem('cart');
       return cartData ? JSON.parse(cartData) : [];
@@ -46,19 +46,19 @@ export default function CartPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center">
-        <p className="text-gray-500">£adowanie koszyka...</p>
+      <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE] flex items-center justify-center">
+        <p className="text-gray-500">≈Åadowanie Koszyka...</p>
       </div>
     );
   }
 
   if (cart.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
+      <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
         <div className="container mx-auto px-4 py-8">
           <nav className="mb-6">
-            <Link href="/" className="text-[#8CA9FF] hover:text-[#AAC4F5] transition-colors">
-              ã PowrÛt do strony g≥Ûwnej
+            <Link href="/" className="text-[#8ca4ff] hover:text-[#AAC4F5] transition-colors">
+              ‚Üê Powr√≥ƒá do strony g≈Ç√≥wnej
             </Link>
           </nav>
 
@@ -69,12 +69,12 @@ export default function CartPage() {
             </svg>
           </h1>
           <div className="bg-white rounded-2xl p-12 text-center shadow-md">
-            <p className="text-gray-500 mb-6 text-lg">TwÛj koszyk jest pusty</p>
+            <p className="text-gray-500 mb-6 text-lg">Tw√≥j Koszyk jest pusty</p>
             <Link
               href="/products"
-              className="inline-block bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105 shadow-md"
+              className="inline-block bg-[#8ca4ff] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105 shadow-md"
             >
-              Przejdü do sklepu
+              Przejd≈∫ do sklepu
             </Link>
           </div>
         </div>
@@ -83,11 +83,11 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
       <div className="container mx-auto px-4 py-8">
         <nav className="mb-6">
-          <Link href="/" className="text-[#8CA9FF] hover:text-[#AAC4F5] transition-colors">
-            ã PowrÛt do strony g≥Ûwnej
+          <Link href="/" className="text-[#8ca4ff] hover:text-[#AAC4F5] transition-colors">
+            ‚Üê Powr√≥ƒá do strony g≈Ç√≥wnej
           </Link>
         </nav>
 
@@ -99,7 +99,7 @@ export default function CartPage() {
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Cart Items */}
+          {/* ca≈Çrt Items */}
           <div className="lg:col-span-2 space-y-4">
             {cart.map((item, index) => (
               <div
@@ -131,7 +131,7 @@ export default function CartPage() {
                         <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
                           item.format === 'ebook' 
                             ? 'bg-[#AAC4F5] text-white' 
-                            : 'bg-[#8CA9FF] text-white'
+                            : 'bg-[#8ca≈Ç9FF] text-white'
                         }`}>
                           {item.format === 'ebook' ? (
                             <span className="flex items-center gap-1.5">
@@ -145,18 +145,18 @@ export default function CartPage() {
                               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
                               </svg>
-                              Ksiπøka
+                              ksiƒÖ≈ºka
                             </span>
                           )}
                         </span>
                       </div>
                     )}
                     
-                    <p className="text-xl font-bold text-[#8CA9FF] mb-4">{item.price} z≥</p>
+                    <p className="text-xl font-bold text-[#8ca4ff] mb-4">{item.price} z≈Ç</p>
 
                     {/* Quantity Controls */}
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-gray-600 text-sm">IloúÊ:</span>
+                      <span className="text-gray-600 text-sm">Ilo≈õƒá:</span>
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => updateQuantity(item.id, item.format, item.quantity - 1)}
@@ -179,7 +179,7 @@ export default function CartPage() {
                       onClick={() => removeItem(item.id, item.format)}
                       className="text-red-600 hover:text-red-800 font-semibold text-sm transition-colors"
                     >
-                      UsuÒ
+                      Usu≈Ñ
                     </button>
                   </div>
                 </div>
@@ -194,28 +194,28 @@ export default function CartPage() {
               
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-gray-600">
-                  <span>ProduktÛw ({cart.length})</span>
-                  <span>{calculateTotal()} z≥</span>
+                  <span>Produkt√≥w ({cart.length})</span>
+                  <span>{calculateTotal()} z≈Ç</span>
                 </div>
               </div>
 
               <div className="border-t border-gray-200 pt-4 mb-6">
                 <div className="flex justify-between text-xl font-bold">
                   <span>Razem</span>
-                  <span className="text-[#8CA9FF]">{calculateTotal()} z≥</span>
+                  <span className="text-[#8ca4ff]">{calculateTotal()} z≈Ç</span>
                 </div>
               </div>
 
               <Link
                 href="/checkout"
-                className="block w-full bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-6 rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md mb-4"
+                className="block w-full bg-[#8ca4ff] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-6 rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md mb-4"
               >
-                Przejdü do p≥atnoúci
+                Przejd≈∫ do p≈Çatno≈õci
               </Link>
 
               <Link
                 href="/products"
-                className="block w-full text-center text-[#8CA9FF] hover:text-[#AAC4F5] font-semibold py-3 transition-colors"
+                className="block w-full text-center text-[#8ca4ff] hover:text-[#AAC4F5] font-semibold py-3 transition-colors"
               >
                 Kontynuuj zakupy
               </Link>

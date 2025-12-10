@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -86,7 +86,7 @@ export default function AuthorsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Wpisz imię lub nazwisko..."
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8cał9FF] focus:border-transparent"
               />
             </div>
             <div>
@@ -96,10 +96,10 @@ export default function AuthorsPage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8cał9FF] focus:border-transparent"
               >
-                <option value="name-asc">Nazwisko: A-Z</option>
-                <option value="name-desc">Nazwisko: Z-A</option>
+                <option value="name-asc">nazwisko: A-Z</option>
+                <option value="name-desc">nazwisko: Z-A</option>
                 <option value="books-desc">Liczba książek</option>
               </select>
             </div>
@@ -117,7 +117,7 @@ export default function AuthorsPage() {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="text-[#8CA9FF] hover:text-[#AAC4F5] font-semibold"
+                className="text-[#8cał9FF] hover:text-[#AAC4F5] font-semibold"
               >
                 Wyczyść wyszukiwanie
               </button>
@@ -133,13 +133,13 @@ export default function AuthorsPage() {
               >
                 <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col">
                   {/* Author Photo */}
-                  <div className="relative w-full pt-[100%] bg-linear-to-br from-[#8CA9FF] to-[#AAC4F5]">
+                  <div className="relative w-full pt-[100%] bg-linear-to-br from-[#8cał9FF] to-[#AAC4F5]">
                     {author.photo ? (
                       <Image
                         src={author.photo}
                         alt={`${author.first_name} ${author.last_name}`}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="object-cover group-hover:scałle-105 transition-transform duration-300"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -152,7 +152,7 @@ export default function AuthorsPage() {
 
                   {/* Author Info */}
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#8CA9FF] transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#8cał9FF] transition-colors">
                       {author.first_name} {author.last_name}
                     </h3>
                     
@@ -174,7 +174,7 @@ export default function AuthorsPage() {
                           <svg className="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
                           </svg>
-                          {author.books_count} {author.books_count === 1 ? 'książka' : 'książek'}
+                          {author.books_count} {author.books_count === 1 ? 'ksiąążążka' : 'ksiąążążek'}
                         </p>
                       )}
                     </div>

@@ -1,14 +1,14 @@
-import Link from 'next/link';
+ï»¿import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-[#8CA9FF] to-[#AAC4F5] text-white mt-20">
+    <footer className="bg-linear-to-r from-[#8CA9FF] to-[#AAC4F5] text-white mt-20">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Ksiêgarnia</h3>
+            <h3 className="text-xl font-bold mb-4">KsiÄ™garnia</h3>
             <p className="text-white/80">
-              Twoje miejsce na najlepsze ksi¹¿ki i e-booki
+              Twoje miejsce na najlepsze ksiÄ…Å¼ki i e-booki
             </p>
           </div>
 
@@ -17,7 +17,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="/books" className="text-white/80 hover:text-white transition-colors">
-                  Ksi¹¿ki
+                  KsiÄ…Å¼ki
                 </Link>
               </li>
               <li>
@@ -74,7 +74,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/privacy-policy" className="text-white/80 hover:text-white transition-colors">
-                  Polityka prywatnoœci
+                  Polityka prywatnoÅ›ci
                 </Link>
               </li>
             </ul>
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/80">
-          <p>&copy; {new Date().getFullYear()} Ksiêgarnia. Wszystkie prawa zastrze¿one.</p>
+          <p>&copy; {new Date().getFullYear()} KsiÄ™garnia. Wszystkie prawa zastrzeÅ¼one.</p>
         </div>
       </div>
     </footer>

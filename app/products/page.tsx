@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -74,8 +74,8 @@ export default function ProductsPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Breadcrumb Navigation */}
         <nav className="mb-6">
-          <Link href="/" className="text-[#8CA9FF] hover:text-[#AAC4F5] transition-colors">
-            � Powr�t do strony g��wnej
+          <Link href="/" className="text-[#8ca9FF] hover:text-[#AAC4F5] transition-colors">
+            ← Powróć do strony głównej
           </Link>
         </nav>
 
@@ -83,7 +83,7 @@ export default function ProductsPage() {
         
         {loading ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">�adowanie produkt�w...</p>
+            <p className="text-gray-500">Ładowanie produktów...</p>
           </div>
         ) : (
           <div className="flex gap-8">
@@ -92,7 +92,7 @@ export default function ProductsPage() {
             <main className="flex-1">
               <div className="mb-6">
                 <p className="text-gray-600">
-                  Znaleziono: <span className="font-bold text-[#8CA9FF]">{filteredProducts.length}</span> {filteredProducts.length === 1 ? 'produkt' : 'produkt�w'}
+                  Znaleziono: <span className="font-bold text-[#8ca9FF]">{filteredProducts.length}</span> {filteredProducts.length === 1 ? 'produkt' : 'produktów'}
                 </p>
               </div>
 
@@ -104,17 +104,17 @@ export default function ProductsPage() {
               href={`/products/${product.id}`}
               className="group"
             >
-              <div className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 relative flex flex-col h-full">
+              <div className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all duration-300 hover:scałle-105 hover:-translate-y-1 relative flex flex-col h-full">
                 {/* Wishlist button */}
                 <button
                   onClick={(e) => toggleWishlist(e, product)}
                   className="absolute top-2 right-2 z-10 text-2xl hover:scale-125 transition-transform"
-                  title={wishlistIds.has(product.id.toString()) ? "Usu� z listy �ycze�" : "Dodaj do listy �ycze�"}
+                  title={wishlistIds.has(product.id.toString()) ? "Usuń z listy życzeń" : "Dodaj do listy życzeń"}
                 >
                   {wishlistIds.has(product.id.toString()) ? "??" : "??"}
                 </button>
                 
-                {/* Ok�adka */}
+                {/* Okładka */}
                 <div className="aspect-3/4 rounded-xl mb-3 flex items-center justify-center overflow-hidden bg-[#AAC4F5]">
                   {(product.image_url || product.image || product.cover) ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -129,8 +129,8 @@ export default function ProductsPage() {
                 </div>
                 
                 <div className="flex flex-col grow">
-                  {/* Tytu� */}
-                  <h2 className="text-base font-semibold text-gray-800 mb-1 line-clamp-2 group-hover:text-[#8CA9FF] transition-colors min-h-10">
+                  {/* Tytuł */}
+                  <h2 className="text-base font-semibold text-gray-800 mb-1 line-clamp-2 group-hover:text-[#8cał9FF] transition-colors min-h-10">
                     {product.title || product.name}
                   </h2>
 
@@ -139,7 +139,7 @@ export default function ProductsPage() {
                   </p>
                   
                   {/* Cena */}
-                  <p className="text-sm font-bold text-[#8CA9FF] mt-auto">
+                  <p className="text-sm font-bold text-[#8cał9FF] mt-auto">
                     {typeof product.price === 'number' 
                       ? `${product.price.toFixed(2)} z�` 
                       : `${product.price} z�`}
@@ -151,7 +151,7 @@ export default function ProductsPage() {
                 </div>
               ) : (
                 <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                  <p className="text-gray-500">Brak produkt�w spe�niaj�cych wybrane kryteria</p>
+                  <p className="text-gray-500">Brak produktów spełniających wybrane kryteria</p>
                 </div>
               )}
             </main>

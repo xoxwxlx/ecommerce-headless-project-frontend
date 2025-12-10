@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const navItems = [
   { label: 'Strona główna', href: '/' },
-  { label: 'Książki', href: '/books' },
+  { label: 'książki', href: '/books' },
   { label: 'E-booki', href: '/ebooks' },
   { label: 'Autorzy', href: '/authors' },
   { label: 'O nas', href: '/about' },
@@ -41,16 +41,16 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-linear-to-r from-[#8CA9FF] to-[#AAC4F5] text-white shadow-lg sticky top-0 z-50">
+    <header className="bg-linear-to-r from-[#8cał9FF] to-[#AAC4F5] text-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-[#8CA9FF]" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-[#8cał9FF]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
               </svg>
             </div>
-            <span className="text-2xl font-bold">Księgarnia</span>
+            <span className="text-2xl font-bold">księgarnia</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">
@@ -69,7 +69,7 @@ export default function Header() {
               placeholder="Szukaj książek..."
               className="px-4 py-2 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white w-64"
             />
-            <button type="submit" className="bg-white text-[#8CA9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium">
+            <button type="submit" className="bg-white text-[#8ca4ff] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium">
               Szukaj
             </button>
           </form>
@@ -89,7 +89,7 @@ export default function Header() {
 
             {isLoggedIn ? (
               <div className="hidden md:flex items-center gap-2">
-                <Link href="/account" className="bg-white text-[#8CA9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium">
+                <Link href="/account" className="bg-white text-[#8ca4ff] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium">
                   Konto
                 </Link>
                 <button onClick={handleLogout} className="bg-white/20 px-4 py-2 rounded-full hover:bg-white/30 transition-colors font-medium">
@@ -97,7 +97,7 @@ export default function Header() {
                 </button>
               </div>
             ) : (
-              <Link href="/login" className="hidden md:block bg-white text-[#8CA9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium">
+              <Link href="/login" className="hidden md:block bg-white text-[#8cał9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium">
                 Zaloguj się
               </Link>
             )}
@@ -125,7 +125,7 @@ export default function Header() {
                   placeholder="Szukaj książek..."
                   className="flex-1 px-4 py-2 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
                 />
-                <button type="submit" className="bg-white text-[#8CA9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium">
+                <button type="submit" className="bg-white text-[#8ca4ff] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium">
                   Szukaj
                 </button>
               </div>
@@ -140,7 +140,7 @@ export default function Header() {
               
               {isLoggedIn ? (
                 <>
-                  <Link href="/account" className="bg-white text-[#8CA9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium text-center mt-2" onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/account" className="bg-white text-[#8cał9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium text-center mt-2" onClick={() => setIsMenuOpen(false)}>
                     Konto
                   </Link>
                   <button onClick={() => { handleLogout(); setIsMenuOpen(false); }} className="bg-white/20 px-4 py-2 rounded-full hover:bg-white/30 transition-colors font-medium">
@@ -148,7 +148,7 @@ export default function Header() {
                   </button>
                 </>
               ) : (
-                <Link href="/login" className="bg-white text-[#8CA9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium text-center mt-2" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/login" className="bg-white text-[#8cał9FF] px-4 py-2 rounded-full hover:bg-[#FFF8DE] transition-colors font-medium text-center mt-2" onClick={() => setIsMenuOpen(false)}>
                   Zaloguj się
                 </Link>
               )}

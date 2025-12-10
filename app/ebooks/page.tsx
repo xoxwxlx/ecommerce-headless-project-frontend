@@ -78,7 +78,7 @@ export default function EbooksPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
       <Header />
       
       <div className="container mx-auto px-4 py-8">

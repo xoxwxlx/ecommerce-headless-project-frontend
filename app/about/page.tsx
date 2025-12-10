@@ -1,4 +1,4 @@
-"use client";
+ï»¿"use client";
 
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
@@ -16,7 +16,7 @@ export default function AboutPage() {
               O nas ??
             </h1>
             <p className="text-xl text-gray-600">
-              Z pasj¹ do literatury od 20 lat
+              Z pasjÄ… do literatury od 20 lat
             </p>
           </div>
 
@@ -27,21 +27,21 @@ export default function AboutPage() {
                 Nasza Historia
               </h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Verse powsta³o w 2005 roku z pasji do dobrej literatury. Zbudowaliœmy katalog obejmuj¹cy setki tytu³ów w ró¿nych gatunkach - od klasyki po najnowsze 
+                Verse powstaÅ‚o w 2005 roku z pasji do dobrej literatury. ZbudowaliÅ›my katalog obejmujÄ…cy setki tytuÅ‚Ã³w w rÃ³Å¼nych gatunkach - od klasyki po najnowsze 
                 bestsellery.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Specjalizujemy siê w publikowaniu zarówno ksi¹¿ek papierowych, jak i e-booków, 
-                daj¹c czytelnikom wybór preferowanego formatu. Wierzymy, ¿e ka¿dy zas³uguje na dostêp 
-                do wysokiej jakoœci literatury, niezale¿nie od formy, w jakiej preferuje czytaæ.
+                Specjalizujemy siÄ™ w publikowaniu zarÃ³wno ksiÄ…Å¼ek papierowych, jak i e-bookÃ³w, 
+                dajÄ…c czytelnikom wybÃ³r preferowanego formatu. Wierzymy, Å¼e kaÅ¼dy zasÅ‚uguje na dostÄ™p 
+                do wysokiej jakoÅ›ci literatury, niezaleÅ¼nie od formy, w jakiej preferuje czytaÄ‡.
               </p>
 
               <h2 className="text-3xl font-bold text-gray-800 mb-6 mt-12">
                 Nasza Misja
               </h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Nasz¹ misj¹ jest promowanie kultury czytelnictwa i udostêpnianie najlepszych dzie³ 
-                literackich polskim czytelnikom. Dbamy o wysok¹ jakoœæ wydañ - zarówno pod wzglêdem 
+                naszÄ… misjÄ… jest promowanie kultury czytelnictwa i udostÄ™pnianie najlepszych dzieÅ‚ 
+                literackich polskim czytelnikom. Dbamy o wysokÄ… jakoÅ›Ä‡ wydaÅ„ - zarÃ³wno pod wzglÄ™dem 
                 redakcyjnym, jak i graficznym.
               </p>
 
@@ -49,17 +49,17 @@ export default function AboutPage() {
                 <div className="bg-[#FFF2C6] rounded-xl p-6 text-center">
                   <div className="text-4xl mb-3">??</div>
                   <h3 className="font-bold text-gray-800 mb-2">500+</h3>
-                  <p className="text-gray-600">Publikowanych tytu³ów</p>
+                  <p className="text-gray-600">Publikowanych tytuÅ‚Ã³w</p>
                 </div>
                 <div className="bg-[#AAC4F5] rounded-xl p-6 text-center">
                   <div className="text-4xl mb-3">??</div>
                   <h3 className="font-bold text-white mb-2">100,000+</h3>
-                  <p className="text-white">Zadowolonych czytelników</p>
+                  <p className="text-white">Zadowolonych czytelnikÃ³w</p>
                 </div>
-                <div className="bg-[#8CA9FF] rounded-xl p-6 text-center">
+                <div className="bg-[#8caÅ‚9FF] rounded-xl p-6 text-center">
                   <div className="text-4xl mb-3">?</div>
                   <h3 className="font-bold text-white mb-2">20 lat</h3>
-                  <p className="text-white">Doœwiadczenia</p>
+                  <p className="text-white">DoÅ›wiadczenia</p>
                 </div>
               </div>
 
@@ -68,35 +68,35 @@ export default function AboutPage() {
               </h2>
               <ul className="space-y-4 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-[#8CA9FF] mr-3 text-xl">?</span>
-                  <span><strong>Szeroki wybór:</strong> Od klasyki literatury po najnowsze bestsellery</span>
+                  <span className="text-[#8caÅ‚9FF] mr-3 text-xl">?</span>
+                  <span><strong>Szeroki wybÃ³r:</strong> Od klasyki literatury po najnowsze bestsellery</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#8CA9FF] mr-3 text-xl">?</span>
-                  <span><strong>Dwa formaty:</strong> Ksi¹¿ki papierowe i e-booki</span>
+                  <span className="text-[#8caÅ‚9FF] mr-3 text-xl">?</span>
+                  <span><strong>Dwa formaty:</strong> ksiÄ…Å¼ki papierowe i e-booki</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#8CA9FF] mr-3 text-xl">?</span>
-                  <span><strong>Wysoka jakoœæ:</strong> Profesjonalna redakcja i piêkne wydania</span>
+                  <span className="text-[#8caÅ‚9FF] mr-3 text-xl">?</span>
+                  <span><strong>Wysoka jakoÅ›Ä‡:</strong> Profesjonalna redakcja i piÄ™kne wydania</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#8CA9FF] mr-3 text-xl">?</span>
-                  <span><strong>Szybka dostawa:</strong> Sprawna realizacja zamówieñ</span>
+                  <span className="text-[#8caÅ‚9FF] mr-3 text-xl">?</span>
+                  <span><strong>Szybka dostawa:</strong> Sprawna realizacja zamÃ³wieÅ„</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#8CA9FF] mr-3 text-xl">?</span>
-                  <span><strong>Wsparcie:</strong> Pomoc na ka¿dym etapie zakupu</span>
+                  <span className="text-[#8caÅ‚9FF] mr-3 text-xl">?</span>
+                  <span><strong>Wsparcie:</strong> Pomoc na kaÅ¼dym etapie zakupu</span>
                 </li>
               </ul>
 
               <h2 className="text-3xl font-bold text-gray-800 mb-6 mt-12">
-                Skontaktuj siê z nami
+                Skontaktuj siÄ™ z nami
               </h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Masz pytania? Chcesz nawi¹zaæ wspó³pracê? Jesteœmy do Twojej dyspozycji! 
-                Skorzystaj z naszego formularza kontaktowego lub napisz bezpoœrednio na adres: 
-                <a href="mailto:kontakt@verse.pl" className="text-[#8CA9FF] hover:text-[#AAC4F5] font-semibold ml-1">
-                  kontakt@verse.pl
+                Masz pytania? Chcesz nawiÄ…zaÄ‡ wspÃ³Å‚pracÄ™? JesteÅ›my do Twojej dyspozycji! 
+                Skorzystaj z naszego formularza Kontaktowego lub napisz bezpoÅ›rednio na Adres: 
+                <a href="mailto:Kontakt@verse.pl" className="text-[#8caÅ‚9FF] hover:text-[#AAC4F5] font-semibold ml-1">
+                  Kontakt@verse.pl
                 </a>
               </p>
             </div>

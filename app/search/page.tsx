@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -85,7 +85,7 @@ function SearchResults() {
           </h1>
           {query && (
             <p className="text-xl text-gray-600">
-              Szukasz: <span className="font-semibold text-[#8CA9FF]">{query}</span>
+              Szukasz: <span className="font-semibold text-[#8cał9FF]">{query}</span>
             </p>
           )}
         </div>
@@ -105,7 +105,7 @@ function SearchResults() {
             </p>
             <Link
               href="/products"
-              className="inline-block bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105"
+              className="inline-block bg-[#8ca9FF] hover:bg-[#AAC4F5] text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:scale-105"
             >
               Przeglądaj wszystkie produkty
             </Link>
@@ -123,7 +123,7 @@ function SearchResults() {
                   className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col group"
                 >
                   <Link href={`/products/${product.id}`} className="block">
-                    <div className="relative w-full pt-[140%] bg-linear-to-br from-[#8CA9FF] to-[#AAC4F5]">
+                    <div className="relative w-full pt-[140%] bg-linear-to-br from-[#8ca9FF] to-[#AAC4F5]">
                       {product.cover_image ? (
                         <Image
                           src={product.cover_image}
@@ -143,7 +143,7 @@ function SearchResults() {
 
                   <div className="p-4 flex-1 flex flex-col">
                     <Link href={`/products/${product.id}`}>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-[#8CA9FF] transition-colors">
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-[#8ca9FF] transition-colors">
                         {product.title}
                       </h3>
                     </Link>
@@ -156,19 +156,19 @@ function SearchResults() {
 
                     {product.format && (
                       <span className="inline-block px-3 py-1 bg-[#FFF2C6] text-gray-700 text-xs font-semibold rounded-full mb-3">
-                        {product.format === 'ebook' ? 'E-book' : product.format === 'paperback' ? 'Książka' : product.format}
+                        {product.format === 'ebook' ? 'E-book' : product.format === 'paperback' ? 'książka' : product.format}
                       </span>
                     )}
 
                     <div className="mt-auto">
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-2xl font-bold text-[#8CA9FF]">
+                        <span className="text-2xl font-bold text-[#8cał9FF]">
                           {product.price} zł
                         </span>
                         <button
                           onClick={() => toggleWishlist(product.id)}
                           className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                          aria-label="Dodaj do listy życzeń"
+                          aria-label="Dodaj do listę życzeń"
                         >
                           <svg
                             className="w-6 h-6"
@@ -188,7 +188,7 @@ function SearchResults() {
 
                       <Link
                         href={`/products/${product.id}`}
-                        className="block w-full bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-semibold py-2.5 px-4 rounded-xl text-center transition-all duration-200 hover:scale-105"
+                        className="block w-full bg-[#8cał9FF] hover:bg-[#AAC4F5] text-white font-semibold py-2.5 px-4 rounded-xl text-center transition-all duration-200 hover:scałle-105"
                       >
                         Zobacz szczegóły
                       </Link>

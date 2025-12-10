@@ -1,10 +1,10 @@
-'use client';
+Ôªø'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createCheckoutSession, addToCart } from '@/services/api';
 
-interface CartItem {
+interface cartItem {
   id: number;
   name: string;
   price: string;
@@ -14,7 +14,7 @@ interface CartItem {
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const [cart] = useState<CartItem[]>(() => {
+  const [cart] = useState<cartItem[]>(() => {
     if (typeof window !== 'undefined') {
       const cartData = localStorage.getItem('cart');
       if (cartData) {
@@ -48,7 +48,7 @@ export default function CheckoutPage() {
       const token = localStorage.getItem('access');
       
       if (!token) {
-        setError('Musisz siÍ zalogowaÊ, aby kontynuowaÊ');
+        setError('Musisz siƒô zalogowaƒá, aby kontynuowaƒá');
         setTimeout(() => router.push('/login'), 2000);
         setIsLoading(false);
         return;
@@ -64,7 +64,7 @@ export default function CheckoutPage() {
         }
       }
 
-      // Call the API to create checkout session
+      // call the API to create checkout session
       const response = await createCheckoutSession(token);
 
       // Redirect to Stripe hosted checkout page
@@ -73,12 +73,12 @@ export default function CheckoutPage() {
       } else if (response.checkout_url) {
         window.location.href = response.checkout_url;
       } else {
-        setError('Nie otrzymano adresu URL sesji p≥atnoúci');
+        setError('Nie otrzymano Adresu URL sesji p≈Çatno≈õci');
         setIsLoading(false);
       }
     } catch (err) {
       console.error('Checkout error:', err);
-      const errorMessage = err instanceof Error ? err.message : 'Wystπpi≥ b≥πd podczas tworzenia sesji p≥atnoúci';
+      const errorMessage = err instanceof Error ? err.message : 'WystƒÖpi≈Ç b≈ÇƒÖd podczas tworzenia sesji p≈Çatno≈õci';
       setError(errorMessage);
       setIsLoading(false);
     }
@@ -88,30 +88,29 @@ export default function CheckoutPage() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center">
-          <p className="text-lg">Loading checkout...</p>
+          <p className="text-lg">≈Åadowanie p≈Çatno≈õci...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
+    <div className="min-h-screen bg-linear-to-br from-[#F0F4FF] via-white to-[#FFF8DE]">
       <div className="container mx-auto px-4 py-8">
         <nav className="mb-6">
           <button 
             onClick={() => router.push('/cart')}
-            className="text-[#8CA9FF] hover:text-[#AAC4F5] transition-colors"
+            className="text-[#8ca4ff] hover:text-[#AAC4F5] transition-colors"
           >
-            ã PowrÛt do koszyka
+            ‚Üê Powr√≥ƒá do Koszyka
           </button>
         </nav>
 
-        <h1 className="text-4xl font-bold mb-8 text-gray-800">P≥atnoúÊ ??</h1>
-
+        <h1 className="text-4xl font-bold mb-8 text-gray-800">P≈Çatno≈õƒá üí≥</h1>
         <div className="max-w-2xl mx-auto">
           {/* Order Summary */}
           <div className="bg-white rounded-2xl shadow-md p-8 mb-6">
-            <h2 className="text-2xl font-semibold mb-6 text-gray-800">Podsumowanie zamÛwienia</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-gray-800">Podsumowanie zam√≥wienia</h2>
             
             <div className="space-y-4 mb-6">
               {cart.map((item) => (
@@ -119,11 +118,11 @@ export default function CheckoutPage() {
                   <div>
                     <p className="font-semibold text-gray-800">{item.name}</p>
                     <p className="text-sm text-gray-600">
-                      IloúÊ: {item.quantity} ◊ {item.price} z≥
+                      Ilo≈õƒá: {item.quantity} √ó {item.price} z≈Ç
                     </p>
                   </div>
-                  <p className="font-semibold text-[#8CA9FF]">
-                    {(parseFloat(item.price) * item.quantity).toFixed(2)} z≥
+                  <p className="font-semibold text-[#8ca4ff]">
+                    {(parseFloat(item.price) * item.quantity).toFixed(2)} z≈Ç 
                   </p>
                 </div>
               ))}
@@ -132,7 +131,7 @@ export default function CheckoutPage() {
             <div className="border-t border-gray-200 pt-4">
               <div className="flex justify-between text-xl font-bold">
                 <span>Razem</span>
-                <span className="text-[#8CA9FF]">{calculateTotal()} z≥</span>
+                <span className="text-[#8ca4ff]">{calculateTotal()} z≈Ç</span>
               </div>
             </div>
           </div>
@@ -151,15 +150,15 @@ export default function CheckoutPage() {
             className={`w-full font-semibold py-4 px-6 rounded-full text-white text-lg transition-all duration-200 shadow-md ${
               isLoading
                 ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-[#8CA9FF] hover:bg-[#AAC4F5] hover:scale-105'
+                : 'bg-[#8ca≈Ç9FF] hover:bg-[#AAC4F5] hover:sca≈Çle-105'
             }`}
           >
-            {isLoading ? 'Przetwarzanie...' : 'Przejdü do p≥atnoúci'}
+            {isLoading ? 'Przetwarzanie...' : 'Przejd≈∫ do p≈Çatno≈õci'}
           </button>
 
           {/* Security Note */}
           <div className="mt-6 text-center text-sm text-gray-600">
-            <p>?? Bezpieczna p≥atnoúÊ przez Stripe</p>
+            <p>üîí Bezpieczna p≈Çatno≈õƒá przez Stripe</p>
           </div>
         </div>
       </div>
