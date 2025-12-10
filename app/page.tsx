@@ -157,7 +157,7 @@ export default function Home() {
       {/* Promotional Banner */}
       <section className="relative h-[400px] md:h-[500px] overflow-hidden group cursor-pointer">
         <Link href="/products" className="block w-full h-full">
-          <div className="absolute inset-0 bg-linear-to-r from-[#AAC4F5] to-[#8cał9FF] transition-transform duration-700 group-hover:scale-105">
+          <div className="absolute inset-0 bg-linear-to-r from-[#AAC4F5] to-[#8ca9FF] transition-transform duration-700 group-hover:scale-105">
             <div className="container mx-auto px-4 h-full flex items-center justify-center text-center">
               <div className="animate-fadeIn">
                 <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
@@ -239,7 +239,7 @@ export default function Home() {
                             <p className="text-sm text-gray-600 mb-2 min-h-5">
                               {product.author || '\u00A0'}
                             </p>
-                            <p className="text-sm font-bold text-[#8ca49FFF] mt-auto">
+                            <p className="text-sm font-bold text-[#8CA9FF] mt-auto">
                               {typeof product.price === 'number' ? `${product.price.toFixed(2)} zł` : `${product.price} zł`}
                             </p>
                           </div>
@@ -254,7 +254,7 @@ export default function Home() {
                       disabled={(genreSlides[genre] || 0) === 0}
                       className="px-6 py-2 bg-[#AAC4F5] text-white rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#8ca9FF] transition-all duration-200 hover:scale-105 shadow-md"
                     >
-                      � Poprzednie
+                      ← Poprzednie
                     </button>
                     <button
                       onClick={() => updateSlide(genre, 'next')}

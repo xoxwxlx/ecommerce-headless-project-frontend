@@ -79,7 +79,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Wiadomo��</label>
+                  <label className="block text-gray-700 font-medium mb-2">Wiadomość</label>
                   <textarea rows={5} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent" placeholder="Twoja wiadomo��..."></textarea>
                 </div>
 

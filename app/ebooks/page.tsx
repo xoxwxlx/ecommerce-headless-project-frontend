@@ -86,7 +86,7 @@ export default function EbooksPage() {
         
         {loading ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">�adowanie e-book�w...</p>
+            <p className="text-gray-500">Ładowanie e-booków...</p>
           </div>
         ) : (
           <div className="flex gap-8">
@@ -95,7 +95,7 @@ export default function EbooksPage() {
             <main className="flex-1">
               <div className="mb-6">
                 <p className="text-gray-600">
-                  Znaleziono: <span className="font-bold text-[#8CA9FF]">{filteredProducts.length}</span> {filteredProducts.length === 1 ? 'e-book' : 'e-book�w'}
+                  Znaleziono: <span className="font-bold text-[#8CA9FF]">{filteredProducts.length}</span> {filteredProducts.length === 1 ? 'e-book' : 'e-booków'}
                 </p>
               </div>
 
@@ -112,9 +112,9 @@ export default function EbooksPage() {
                     <button
                       onClick={(e) => toggleWishlist(e, product)}
                       className="absolute top-2 right-2 z-10 text-2xl hover:scale-125 transition-transform"
-                      title={wishlistIds.has(product.id.toString()) ? "Usu� z listy �ycze�" : "Dodaj do listy �ycze�"}
+                      title={wishlistIds.has(product.id.toString()) ? "Usuń z listy życzeń" : "Dodaj do listy życzeń"}
                     >
-                      {wishlistIds.has(product.id.toString()) ? "??" : "??"}
+                      {wishlistIds.has(product.id.toString()) ? "❤️" : "🤍"}
                     </button>
                     
                     <div className="aspect-3/4 rounded-xl mb-3 flex items-center justify-center overflow-hidden bg-[#8CA9FF]">
@@ -138,8 +138,8 @@ export default function EbooksPage() {
                       </p>
                       <p className="text-sm font-bold text-[#8CA9FF] mt-auto">
                         {typeof product.price === 'number' 
-                          ? `${product.price.toFixed(2)} z�` 
-                          : `${product.price} z�`}
+                          ? `${product.price.toFixed(2)} zł` 
+                          : `${product.price} zł`}
                       </p>
                     </div>
                   </div>
@@ -148,7 +148,7 @@ export default function EbooksPage() {
                 </div>
               ) : (
                 <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                  <p className="text-gray-500">Brak e-book�w spe�niaj�cych wybrane kryteria</p>
+                  <p className="text-gray-500">Brak e-booków spełniających wybrane kryteria</p>
                 </div>
               )}
             </main>

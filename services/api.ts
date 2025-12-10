@@ -163,7 +163,7 @@ export async function getUserProfile(token: string) {
 }
 
 export async function getVendorsList() {
-  const res = await fetch(`${API_URL}/vendors/`);
+  const res = await fetch(`${API_URL}/users/vendor/companies/`);
   if (!res.ok) throw new Error('Failed to fetch vendors list');
   return res.json();
 }

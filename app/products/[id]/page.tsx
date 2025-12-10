@@ -212,7 +212,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
                 {product.genre && (
                   <div className="mb-4">
-                    <span className="bg-[#FFF2C6] text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-[#FFF8DE] text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
                       {product.genre}
                     </span>
                   </div>
@@ -309,7 +309,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
                 <Link
                   href="/cart"
-                  className="block w-full text-center mt-4 font-semibold py-4 px-8 rounded-full bg-[#FFF2C6] hover:bg-[#FFF8DE] hover:scale-105 transition-all duration-200 shadow-md text-gray-800"
+                  className="block w-full text-center mt-4 font-semibold py-4 px-8 rounded-full bg-[#FFF8DE] hover:bg-[#AAC4F5] hover:text-white hover:scale-105 transition-all duration-200 shadow-md text-gray-800"
                 >
                   Przejdź do koszyka →
                 </Link>

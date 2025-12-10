@@ -154,7 +154,7 @@ export default function AuthorPage({ params }: { params: Promise<{ id: string }>
                   className={`px-6 py-2 rounded-full font-medium transition-all ${
                     filter === 'all'
                       ? 'bg-[#8CA9FF] text-white shadow-lg'
-                      : 'bg-white text-gray-700 hover:bg-[#FFF2C6]'
+                      : 'bg-white text-gray-700 hover:bg-[#FFF8DE]'
                   }`}
                 >
                   Wszystkie ({products.length})
@@ -165,7 +165,7 @@ export default function AuthorPage({ params }: { params: Promise<{ id: string }>
                     className={`px-6 py-2 rounded-full font-medium transition-all ${
                       filter === 'books'
                         ? 'bg-[#8CA9FF] text-white shadow-lg'
-                        : 'bg-white text-gray-700 hover:bg-[#FFF2C6]'
+                        : 'bg-white text-gray-700 hover:bg-[#FFF8DE]'
                     }`}
                   >
                     Książki ({booksCount})
@@ -177,7 +177,7 @@ export default function AuthorPage({ params }: { params: Promise<{ id: string }>
                     className={`px-6 py-2 rounded-full font-medium transition-all ${
                       filter === 'ebooks'
                         ? 'bg-[#8CA9FF] text-white shadow-lg'
-                        : 'bg-white text-gray-700 hover:bg-[#FFF2C6]'
+                        : 'bg-white text-gray-700 hover:bg-[#FFF8DE]'
                     }`}
                   >
                     E-booki ({ebooksCount})

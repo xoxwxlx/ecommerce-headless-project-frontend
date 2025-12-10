@@ -63,7 +63,7 @@ export default function SuccessPage() {
             </Link>
             <Link
               href="/"
-              className="bg-[#FFF2C6] hover:bg-[#FFF8DE] hover:scale-105 text-gray-800 font-semibold py-3 px-8 rounded-full transition-all duration-200 shadow-md"
+              className="bg-[#FFF8DE] hover:bg-[#AAC4F5] hover:text-white hover:scale-105 text-gray-800 font-semibold py-3 px-8 rounded-full transition-all duration-200 shadow-md"
             >
               Powróć do strony głównej
             </Link>

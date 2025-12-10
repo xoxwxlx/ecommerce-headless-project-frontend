@@ -155,7 +155,7 @@ function SearchResults() {
                     )}
 
                     {product.format && (
-                      <span className="inline-block px-3 py-1 bg-[#FFF2C6] text-gray-700 text-xs font-semibold rounded-full mb-3">
+                      <span className="inline-block px-3 py-1 bg-[#FFF8DE] text-gray-700 text-xs font-semibold rounded-full mb-3">
                         {product.format === 'ebook' ? 'E-book' : product.format === 'paperback' ? 'książka' : product.format}
                       </span>
                     )}

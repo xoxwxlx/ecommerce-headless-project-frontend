@@ -1,27 +1,48 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { API_URL } from '@/services/api';
+import { getVendorsList, registerVendorUser } from '@/services/api';
+
+interface Vendor {
+  id: number;
+  company_name: string;
+}
 
 export default function VendorRegisterPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [vendors, setVendors] = useState<Vendor[]>([]);
+  const [loadingVendors, setLoadingVendors] = useState(true);
   
   const [formData, setFormData] = useState({
-    username: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     confirmPassword: '',
-    companyName: '',
-    nip: '',
-    phone: '',
-    address: ''
+    vendorId: '',
+    companyPassword: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    async function fetchVendors() {
+      try {
+        const data = await getVendorsList();
+        setVendors(data);
+      } catch (err) {
+        console.error('Failed to fetch vendors:', err);
+        setError('Nie udało się pobrać listy firm');
+      } finally {
+        setLoadingVendors(false);
+      }
+    }
+    fetchVendors();
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -43,7 +64,7 @@ export default function VendorRegisterPage() {
       return;
     }
 
-    if (!formData.email || !formData.username || !formData.companyName) {
+    if (!formData.email || !formData.firstName || !formData.lastName || !formData.vendorId || !formData.companyPassword) {
       setError('Wypełnij wszystkie wymagane pola!');
       return;
     }
@@ -51,36 +72,25 @@ export default function VendorRegisterPage() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_URL}/vendor/register/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-          company_name: formData.companyName,
-          nip: formData.nip,
-          phone: formData.phone,
-          address: formData.address
-        }),
+      const data = await registerVendorUser({
+        email: formData.email,
+        password: formData.password,
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        vendor_id: parseInt(formData.vendorId),
+        company_password: formData.companyPassword
       });
 
-      const data = await response.json();
-
-      if (data) {
-        // Save tokens
-        if (data.access) {
-          localStorage.setItem('access', data.access);
-        }
-        if (data.refresh) {
-          localStorage.setItem('refresh', data.refresh);
-        }
-        
-        // Redirect to vendor dashboard
-        router.push('/vendor/dashboard');
+      // Save tokens
+      if (data.access) {
+        localStorage.setItem('access', data.access);
       }
+      if (data.refresh) {
+        localStorage.setItem('refresh', data.refresh);
+      }
+      
+      // Redirect to vendor dashboard
+      router.push('/vendor/dashboard');
     } catch (err) {
       console.error('Registration error:', err);
       const errorMessage = err instanceof Error ? err.message : 'Wystąpił błąd podczas rejestracji. Spróbuj ponownie.';
@@ -100,10 +110,10 @@ export default function VendorRegisterPage() {
             </h1>
           </Link>
           <h2 className="text-4xl font-bold text-gray-900 mb-2">
-            Rejestracja sprzedawcy
+            Rejestracja dostawcy
           </h2>
           <p className="text-gray-600">
-            Dołącz do naszej platformy jako sprzedawca
+            Dołącz do naszej platformy jako dostawca
           </p>
         </div>
 
@@ -117,22 +127,39 @@ export default function VendorRegisterPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Account Info */}
             <div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Dane konta</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Dane osobowe</h3>
               
               <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Nazwa użytkownika *
-                  </label>
-                  <input
-                    type="text"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
-                    placeholder="jankowalski"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Imię *
+                    </label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                      placeholder="Jan"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Nazwisko *
+                    </label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                      placeholder="Kowalski"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -150,110 +177,116 @@ export default function VendorRegisterPage() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Hasło *
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                    minLength={8}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
-                    placeholder="••••••••"
-                  />
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Hasło *
+                    </label>
+                    <input
+                      type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      required
+                      minLength={8}
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                      placeholder="••••••••"
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Potwierdź hasło *
-                  </label>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    required
-                    minLength={8}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
-                    placeholder="••••••••"
-                  />
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Potwierdź hasło *
+                    </label>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
+                      onChange={handleChange}
+                      required
+                      minLength={8}
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                      placeholder="••••••••"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Company Info */}
+            {/* Company Selection */}
             <div className="pt-6 border-t border-gray-200">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Dane firmy</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Firma dostawcy</h3>
               
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Nazwa firmy *
+                    Wybierz firmę *
+                  </label>
+                  {loadingVendors ? (
+                    <div className="w-full px-4 py-2.5 border border-gray-300 rounded-xl bg-gray-50 text-gray-500">
+                      Ładowanie firm...
+                    </div>
+                  ) : (
+                    <select
+                      name="vendorId"
+                      value={formData.vendorId}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
+                    >
+                      <option value="">-- Wybierz firmę --</option>
+                      {vendors.map((vendor) => (
+                        <option key={vendor.id} value={vendor.id}>
+                          {vendor.company_name}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                  <p className="text-xs text-gray-500 mt-1">
+                    Wybierz firmę, do której chcesz dołączyć jako dostawca
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Hasło firmy *
                   </label>
                   <input
-                    type="text"
-                    name="companyName"
-                    value={formData.companyName}
+                    type="password"
+                    name="companyPassword"
+                    value={formData.companyPassword}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
-                    placeholder="Moja Księgarnia Sp. z o.o."
+                    placeholder="••••••••"
                   />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Wprowadź hasło dostępu do wybranej firmy (otrzymane od administratora firmy)
+                  </p>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    NIP
-                  </label>
-                  <input
-                    type="text"
-                    name="nip"
-                    value={formData.nip}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
-                    placeholder="1234567890"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Telefon
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
-                    placeholder="+48 123 456 789"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Adres
-                  </label>
-                  <input
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8CA9FF] focus:border-transparent"
-                    placeholder="ul. Przykładowa 123, 00-000 Warszawa"
-                  />
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                    </svg>
+                    <div className="flex-1">
+                      <p className="text-sm text-blue-800 font-medium">Informacja</p>
+                      <p className="text-xs text-blue-700 mt-1">
+                        Jeśli nie znasz hasła firmy, skontaktuj się z administratorem wybranej firmy aby otrzymać hasło dostępu.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || loadingVendors}
               className="w-full bg-[#8CA9FF] hover:bg-[#AAC4F5] text-white font-bold py-3 px-6 rounded-xl transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed mt-6"
             >
-              {loading ? 'Rejestracja...' : 'Zarejestruj się jako sprzedawca'}
+              {loading ? 'Rejestracja...' : 'Zarejestruj się jako dostawca'}
             </button>
           </form>
 

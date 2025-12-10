@@ -114,8 +114,7 @@ export default function VendorProductsPage() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8ca9FF] focus:border-transparent"
               >
                 <option value="all">Wszystkie formaty</option>
-                <option value="physical">książka fizyczna</option>
-                <option value="paperback">książka</option>
+                <option value="physical">Książka</option>
                 <option value="ebook">E-book</option>
                 <option value="both">Oba formaty</option>
               </select>
@@ -179,7 +178,7 @@ export default function VendorProductsPage() {
                           <div className="max-w-xs">
                             <p className="font-semibold text-gray-800 truncałte">{product.title}</p>
                             {product.genre && (
-                              <span className="inline-block mt-1 px-2 py-0.5 bg-[#FFF2C6] text-gray-700 text-xs rounded-full">
+                              <span className="inline-block mt-1 px-2 py-0.5 bg-[#FFF8DE] text-gray-700 text-xs rounded-full">
                                 {product.genre}
                               </span>
                             )}
@@ -196,10 +195,13 @@ export default function VendorProductsPage() {
                             ? 'bg-[#AAC4F5] text-white' 
                             : product.format === 'both'
                             ? 'bg-green-100 text-green-700'
-                            : 'bg-[#8cał9FF] text-white'
+                            : 'bg-[#8CA9FF] text-white'
                         }`}>
-                          {product.format === 'ebook' ? ' E-book' : 
-                           product.format === 'both' ? 'Oba' : 'Książka'}
+                          {product.format === 'ebook' ? 'E-book' : 
+                           product.format === 'both' ? 'Oba' : 
+                           product.format === 'physical' ? 'Książka' : 
+                           product.format === 'paperback' ? 'Książka' : 
+                           'Książka'}
                         </span>
                       </td>
                       <td className="px-6 py-4 text-gray-700">
@@ -222,7 +224,7 @@ export default function VendorProductsPage() {
               </table>
             </div>
 
-            {/* Mobile całrds */}
+            {/* Mobile cards */}
             <div className="md:hidden divide-y divide-gray-200">
               {filteredProducts.map((product) => (
                 <div key={product.id} className="p-4">
@@ -252,13 +254,16 @@ export default function VendorProductsPage() {
                         ? 'bg-[#AAC4F5] text-white' 
                         : product.format === 'both'
                         ? 'bg-green-100 text-green-700'
-                        : 'bg-[#8cał9FF] text-white'
+                        : 'bg-[#8CA9FF] text-white'
                     }`}>
-                      {product.format === 'ebook' ? ' E-book' : 
-                       product.format === 'both' ? 'Oba' : 'Książka'}
+                      {product.format === 'ebook' ? 'E-book' : 
+                       product.format === 'both' ? 'Oba' : 
+                       product.format === 'physical' ? 'Książka' : 
+                       product.format === 'paperback' ? 'Książka' : 
+                       'Książka'}
                     </span>
                     {product.genre && (
-                      <span className="inline-block px-3 py-1 bg-[#FFF2C6] text-gray-700 text-xs rounded-full">
+                      <span className="inline-block px-3 py-1 bg-[#FFF8DE] text-gray-700 text-xs rounded-full">
                         {product.genre}
                       </span>
                     )}

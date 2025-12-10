@@ -46,18 +46,15 @@ export default function AboutPage() {
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 my-12">
-                <div className="bg-[#FFF2C6] rounded-xl p-6 text-center">
-                  <div className="text-4xl mb-3">??</div>
+                <div className="bg-[#FFF8DE] rounded-xl p-6 text-center">
                   <h3 className="font-bold text-gray-800 mb-2">500+</h3>
                   <p className="text-gray-600">Publikowanych tytułów</p>
                 </div>
                 <div className="bg-[#AAC4F5] rounded-xl p-6 text-center">
-                  <div className="text-4xl mb-3">??</div>
                   <h3 className="font-bold text-white mb-2">100,000+</h3>
                   <p className="text-white">Zadowolonych czytelników</p>
                 </div>
-                <div className="bg-[#8cał9FF] rounded-xl p-6 text-center">
-                  <div className="text-4xl mb-3">?</div>
+                <div className="bg-[#8CA9FF] rounded-xl p-6 text-center">
                   <h3 className="font-bold text-white mb-2">20 lat</h3>
                   <p className="text-white">Doświadczenia</p>
                 </div>
@@ -68,23 +65,23 @@ export default function AboutPage() {
               </h2>
               <ul className="space-y-4 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-[#8cał9FF] mr-3 text-xl">?</span>
+                  <span className="text-[#8CA9FF] mr-3 text-xl">·</span>
                   <span><strong>Szeroki wybór:</strong> Od klasyki literatury po najnowsze bestsellery</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#8cał9FF] mr-3 text-xl">?</span>
+                  <span className="text-[#8CA9FF] mr-3 text-xl">·</span>
                   <span><strong>Dwa formaty:</strong> książki papierowe i e-booki</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#8cał9FF] mr-3 text-xl">?</span>
+                  <span className="text-[#8CA9FF] mr-3 text-xl">·</span>
                   <span><strong>Wysoka jakość:</strong> Profesjonalna redakcja i piękne wydania</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#8cał9FF] mr-3 text-xl">?</span>
+                  <span className="text-[#8CA9FF] mr-3 text-xl">·</span>
                   <span><strong>Szybka dostawa:</strong> Sprawna realizacja zamówień</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#8cał9FF] mr-3 text-xl">?</span>
+                  <span className="text-[#8CA9FF] mr-3 text-xl">·</span>
                   <span><strong>Wsparcie:</strong> Pomoc na każdym etapie zakupu</span>
                 </li>
               </ul>

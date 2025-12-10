@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ksi�garnia Online",
-  description: "Najlepsza ksi�garnia online z ksi��kami i e-bookami",
+  title: "Verse",
+  description: "Najlepsza księgarnia online z książkami i e-bookami",
 };
 
 export default function RootLayout({

@@ -2,31 +2,25 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-linear-to-r from-[#8CA9FF] to-[#AAC4F5] text-white mt-20">
+    <footer className="bg-[#FFF2C6] text-gray-800 mt-20">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Księgarnia</h3>
-            <p className="text-white/80">
-              Twoje miejsce na najlepsze książki i e-booki
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Sklep</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/books" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/books" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   Książki
                 </Link>
               </li>
               <li>
-                <Link href="/ebooks" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/ebooks" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   E-booki
                 </Link>
               </li>
               <li>
-                <Link href="/authors" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/authors" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   Autorzy
                 </Link>
               </li>
@@ -37,22 +31,22 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Pomoc</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/faq" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/faq" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/delivery" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/delivery" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   Dostawa
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/returns" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   Zwroty
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/contact" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   Kontakt
                 </Link>
               </li>
@@ -63,26 +57,42 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Informacje</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/about" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   O nas
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/terms" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   Regulamin
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="text-white/80 hover:text-white transition-colors">
+                <Link href="/privacy-policy" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
                   Polityka prywatności
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Dla dostawców</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/vendor/register" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
+                  Rejestracja dostawcy
+                </Link>
+              </li>
+              <li>
+                <Link href="/vendor/dashboard" className="text-gray-600 hover:text-[#8CA9FF] transition-colors">
+                  Panel dostawcy
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/80">
-          <p>&copy; {new Date().getFullYear()} Księgarnia. Wszystkie prawa zastrzeżone.</p>
+        <div className="border-t border-gray-300 mt-8 pt-8 text-center text-gray-600">
+          <p>&copy; {new Date().getFullYear()} Verse. Wszystkie prawa zastrzeżone.</p>
         </div>
       </div>
     </footer>

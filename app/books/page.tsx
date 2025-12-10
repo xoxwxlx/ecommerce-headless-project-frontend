@@ -82,7 +82,7 @@ export default function BooksPage() {
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-gray-800">książki</h1>
+        <h1 className="text-4xl font-bold mb-8 text-gray-800">Książki</h1>
         
         {loading ? (
           <div className="text-center py-12">
@@ -114,7 +114,7 @@ export default function BooksPage() {
                       className="absolute top-2 right-2 z-10 text-2xl hover:scale-125 transition-transform"
                       title={wishlistIds.has(product.id.toString()) ? "Usuń z listy życzeń" : "Dodaj do listy życzeń"}
                     >
-                      {wishlistIds.has(product.id.toString()) ? "??" : "??"}
+                      {wishlistIds.has(product.id.toString()) ? "❤️" : "🤍"}
                     </button>
                     
                     <div className="aspect-3/4 rounded-xl mb-3 flex items-center justify-center overflow-hidden bg-[#AAC4F5]">

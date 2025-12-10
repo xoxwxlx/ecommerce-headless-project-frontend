@@ -26,10 +26,12 @@ export default function VendorLayout({ children }: VendorLayoutProps) {
 
         const userData = await getUserProfile(token);
         
-        if (userData.is_vendor) {
+        // Check if user has vendor role
+        if (userData.role === 'vendor') {
           setIsVendor(true);
         } else {
           // Not a vendor - redirect
+          console.error('Access denied - user role:', userData.role);
           router.push('/?error=vendor-access-denied');
         }
       } catch (error) {
