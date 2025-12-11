@@ -1,6 +1,29 @@
-﻿import Link from 'next/link';
+﻿'use client';
+
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { getUserProfile } from '@/services/api';
 
 export default function Footer() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    async function checkAdminRole() {
+      try {
+        const token = localStorage.getItem('access');
+        if (token) {
+          const userData = await getUserProfile(token);
+          setIsAdmin(userData.role === 'admin');
+        }
+      } catch {
+        // User not logged in or error fetching profile - not an admin
+        setIsAdmin(false);
+      }
+    }
+
+    checkAdminRole();
+  }, []);
+
   return (
     <footer className="bg-[#FFF2C6] text-gray-800 mt-20">
       <div className="max-w-7xl mx-auto px-4 py-12">
@@ -87,6 +110,18 @@ export default function Footer() {
                   Panel dostawcy
                 </Link>
               </li>
+              {isAdmin && (
+                <li>
+                  <a 
+                    href="http://127.0.0.1:8000/admin" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-[#8CA9FF] transition-colors"
+                  >
+                    Panel administracyjny
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>
