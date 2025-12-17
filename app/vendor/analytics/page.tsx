@@ -58,7 +58,25 @@ export default function VendorAnalyticsPage() {
         if (!token) throw new Error('No token');
 
         const data = await getVendorAnalytics(token);
-        setAnalytics(data);
+        // MAPOWANIE: dostosuj dane z API do formatu oczekiwanego przez wykresy
+        const mapped: AnalyticsData = {
+          total_sales: data.total_sales ?? 0,
+          total_revenue: data.total_revenue ?? 0,
+          total_orders: data.total_orders ?? 0,
+          top_products: (data.products_sold || []).map((p: any) => ({
+            id: p.product_id,
+            title: p.title,
+            sales_count: p.quantity_sold,
+            revenue: p.revenue
+          })),
+          sales_by_month: (data.monthly_sales || []).map((m: any) => ({
+            month: m.month,
+            sales: m.quantity,
+            revenue: m.revenue
+          })),
+          sales_by_format: data.sales_by_format || {},
+        };
+        setAnalytics(mapped);
       } catch (err) {
         console.error('Failed to fetch analytics:', err);
         setError('Nie udało się pobrać danych analitycznych');
@@ -147,9 +165,13 @@ export default function VendorAnalyticsPage() {
     );
   }
 
+  // DEBUG: Wyświetl dane analytics i mounted
+  console.log('DEBUG analytics:', analytics);
+  console.log('DEBUG mounted:', mounted);
   return (
     <VendorLayout>
       <div className="space-y-8">
+        {/* ...usunięto sekcję debugowania... */}
         {/* Header */}
         <div>
           <h1 className="text-4xl font-bold text-gray-800 mb-2 flex items-center gap-3">
@@ -164,7 +186,7 @@ export default function VendorAnalyticsPage() {
         </div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-[#8CA9FF]">
             <div className="flex items-center justify-between">
               <div>
@@ -197,20 +219,7 @@ export default function VendorAnalyticsPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-[#AAC4F5]">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-600 text-sm font-medium mb-1">Zamówienia</p>
-                <p className="text-4xl font-bold text-gray-800">{analytics.total_orders || 0}</p>
-                <p className="text-xs text-gray-500 mt-1">Całkowita liczba</p>
-              </div>
-              <div className="w-16 h-16 bg-[#AAC4F5]/10 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-[#AAC4F5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg>
-              </div>
-            </div>
-          </div>
+          {/* Usunięto pole Zamówienia */}
         </div>
 
         {/* Sales by Month Chart */}
@@ -345,7 +354,7 @@ export default function VendorAnalyticsPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {/* Top Products */}
           {analytics.top_products && analytics.top_products.length > 0 && (
             <div className="bg-white rounded-2xl shadow-md p-6">
@@ -418,106 +427,7 @@ export default function VendorAnalyticsPage() {
             </div>
           )}
 
-          {/* Sales by Format */}
-          {analytics.sales_by_format && (
-            <div className="bg-white rounded-2xl shadow-md p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                <svg className="w-6 h-6 text-[#8CA9FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
-                </svg>
-                Sprzedaż według formatu
-              </h2>
-              
-              {/* Pie Chart */}
-              <ResponsiveContainer width="100%" height={300}>
-                <PieChart>
-                  <Pie
-                    data={[
-                      { name: 'Książki fizyczne', value: analytics.sales_by_format.physical || 0, color: '#8CA9FF' },
-                      { name: 'E-booki', value: analytics.sales_by_format.ebook || 0, color: '#AAC4F5' },
-                      { name: 'Oba formaty', value: analytics.sales_by_format.both || 0, color: '#10b981' }
-                    ].filter(item => item.value > 0)}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={({ name, percent }) => `${name}: ${((percent || 0) * 100).toFixed(0)}%`}
-                    outerRadius={100}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {[
-                      { name: 'Książki fizyczne', value: analytics.sales_by_format.physical || 0, color: '#8CA9FF' },
-                      { name: 'E-booki', value: analytics.sales_by_format.ebook || 0, color: '#AAC4F5' },
-                      { name: 'Oba formaty', value: analytics.sales_by_format.both || 0, color: '#10b981' }
-                    ].filter(item => item.value > 0).map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#fff', 
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
-                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-
-              {/* Legend with values */}
-              <div className="mt-6 space-y-3">
-                {analytics.sales_by_format.physical !== undefined && analytics.sales_by_format.physical > 0 && (
-                  <div className="flex items-center justify-between p-3 bg-[#8CA9FF]/10 rounded-lg">
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-[#8CA9FF]"></div>
-                      <svg className="w-5 h-5 text-[#8CA9FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                      <span className="font-medium text-gray-700">Książki fizyczne</span>
-                    </div>
-                    <span className="font-bold text-[#8CA9FF]">{analytics.sales_by_format.physical}</span>
-                  </div>
-                )}
-
-                {analytics.sales_by_format.ebook !== undefined && analytics.sales_by_format.ebook > 0 && (
-                  <div className="flex items-center justify-between p-3 bg-[#AAC4F5]/10 rounded-lg">
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-[#AAC4F5]"></div>
-                      <svg className="w-5 h-5 text-[#AAC4F5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                      <span className="font-medium text-gray-700">E-booki</span>
-                    </div>
-                    <span className="font-bold text-[#AAC4F5]">{analytics.sales_by_format.ebook}</span>
-                  </div>
-                )}
-
-                {analytics.sales_by_format.both !== undefined && analytics.sales_by_format.both > 0 && (
-                  <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-green-500"></div>
-                      <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                      </svg>
-                      <span className="font-medium text-gray-700">Oba formaty</span>
-                    </div>
-                    <span className="font-bold text-green-600">{analytics.sales_by_format.both}</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="mt-6 p-4 bg-[#F0F4FF] rounded-lg">
-                <p className="text-sm text-gray-700">
-                  <strong>Średnia wartość zamówienia:</strong>{' '}
-                  {analytics.total_orders > 0
-                    ? (analytics.total_revenue / analytics.total_orders).toFixed(2)
-                    : '0.00'}{' '}
-                  zł
-                </p>
-              </div>
-            </div>
-          )}
+          {/* Sales by Format - usunięto wykres */}
         </div>
       </div>
     </VendorLayout>

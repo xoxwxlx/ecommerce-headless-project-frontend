@@ -9,6 +9,8 @@ interface cartItem {
   price: string;
   quantity: number;
   image?: string;
+  image_url?: string;
+  cover?: string;
   format?: 'physical' | 'ebook';
 }
 
@@ -109,16 +111,31 @@ export default function CartPage() {
                 <div className="flex gap-4">
                   {/* Product Image */}
                   <div className="w-24 h-32 bg-[#AAC4F5] rounded-xl shrink-0 flex items-center justify-center overflow-hidden">
-                    {item.image ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <span className="text-white text-xs">#{item.id}</span>
-                    )}
+                    {(() => {
+                      const imageSrc = item.image_url || item.image || item.cover;
+                      if (imageSrc) {
+                        return (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={imageSrc}
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            onError={e => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = '/placeholder-cover.svg';
+                            }}
+                          />
+                        );
+                      } else {
+                        return (
+                          <span className="text-white text-xs flex flex-col items-center justify-center w-full h-full">
+                            <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#8ca4ff"/><path d="M7 17l3.5-4.5 2.5 3 3.5-4.5L21 17H3z" fill="#fff"/><circle cx="8.5" cy="8.5" r="1.5" fill="#fff"/></svg>
+                            <span>Brak okładki</span>
+                          </span>
+                        );
+                      }
+                    })()}
                   </div>
 
                   {/* Product Details */}

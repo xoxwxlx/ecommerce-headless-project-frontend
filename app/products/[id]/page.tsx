@@ -147,6 +147,9 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         price: product.price,
         quantity: 1,
         format: cartFormat,
+        image: product.image,
+        image_url: product.image_url,
+        cover: product.cover,
       });
     }
     

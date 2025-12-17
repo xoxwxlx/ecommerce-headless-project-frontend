@@ -2,13 +2,17 @@
 
 import { useState } from 'react';
 
+
 interface Product {
   id: number;
   name: string;
   price: string;
   description?: string;
   image?: string;
+  image_url?: string;
+  cover?: string;
 }
+
 
 interface CartItem {
   id: number;
@@ -16,6 +20,8 @@ interface CartItem {
   price: string;
   quantity: number;
   image?: string;
+  image_url?: string;
+  cover?: string;
 }
 
 export default function AddToCartButton({ product }: { product: Product }) {
@@ -40,6 +46,8 @@ export default function AddToCartButton({ product }: { product: Product }) {
         price: product.price,
         quantity: 1,
         image: product.image,
+        image_url: product.image_url,
+        cover: product.cover,
       });
     }
 
